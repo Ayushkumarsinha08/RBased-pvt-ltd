@@ -1,7 +1,9 @@
+import { Navbar } from "@/components/ui/NavBar";
+
 export default function About(){
     return(
         <div>
-            Hello, welcome to the About page!
+            <Navbar/>
         </div>
     )
 }
