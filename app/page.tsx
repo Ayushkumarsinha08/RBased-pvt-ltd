@@ -1,7 +1,9 @@
-import Image from "next/image";
 
-export default function Home() {
-  return (
-<div> hi there</div>
-);
+
+import {HeroSection} from "@/components/blocks/hero-section-9"
+
+export default function Home (){
+    return (
+        <HeroSection />
+    )
 }
