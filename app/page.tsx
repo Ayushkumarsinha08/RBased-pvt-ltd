@@ -1,9 +1,13 @@
 
 
-import {HeroSection} from "@/components/blocks/hero-section-9"
+import Content from "@/components/ui/firstpage-content"
+import { Navbar } from "@/components/ui/NavBar"
 
 export default function Home (){
     return (
-        <HeroSection />
+        <div>
+            <Navbar/>
+            <Content/>
+        </div>
     )
 }
