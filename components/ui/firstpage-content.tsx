@@ -7,7 +7,7 @@ import { TextRotate, TextRotateRef } from "@/components/ui/text-rotate"
 
 const exampleImages = [
   {
-    url: "https://www.pexels.com/photo/pink-notre-dame-cathedral-in-ho-chi-minh-city-31696524/",
+    url: "https://images.pexels.com/photos/31696524/pexels-photo-31696524/free-photo-of-pink-notre-dame-cathedral-in-ho-chi-minh-city.jpeg",
     author: "Branislav Rodman",
     link: "https://unsplash.com/photos/a-black-and-white-photo-of-a-woman-brushing-her-teeth-r1SjnJL5tf0",
     title: "A Black and White Photo of a Woman Brushing Her Teeth",
@@ -21,7 +21,7 @@ const exampleImages = [
   {
     url: "https://images.unsplash.com/photo-1726083085160-feeb4e1e5b00?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     link: "https://unsplash.com/photos/a-blurry-photo-of-a-crowd-of-people-UgbxzloNGsc",
-    author: "ANDRII SOLOK",
+    author: "ANDRII SOLOK And the rest of the world will be conshsfd fsdjklah fsdajkhasfd sdfahj kjfdsh a       fdjkfsdja  asdfjha dfsjhka sdfjhfsd fjdhuiqwerjh jkldhdfs sdfjkh sdfajkh fdshfd fsdjhksd sdfjhuirerjew uivcbfdui euifjnfskdjiu fduihj fsdajiuew jihuifjdsabn  fuijkfu eruiodfjh",
     title: "A blurry photo of a crowd of people",
   },
   {
@@ -82,7 +82,7 @@ function Item({
       key={index}
       className="h-full w-1/2 flex justify-center items-center snap-center"
     >
-      <div className="w-150 h-100 sm:w-36 sm:h-36 md:w-40 md:h-40">
+      <div className="w-200 h-100 sm:w-36 sm:h-36 md:w-40 md:h-40">
         <a href={link} target="_blank" rel="noreferrer">
           <img
             src={image}

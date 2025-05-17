@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import  Logo  from '@/components/ui/Logo'
+import { signIn ,signOut, useSession} from "next-auth/react";
 
 const menuItems = [
     { name: 'Home', href: '/' },
@@ -13,7 +14,8 @@ const menuItems = [
 ]
 
 export function Navbar() {
-  const [menuState, setMenuState] = React.useState(false);    
+  const [menuState, setMenuState] = React.useState(false);   
+  const session = useSession(); 
   return (
     <nav
     data-state={menuState && 'active'}
@@ -53,7 +55,8 @@ export function Navbar() {
                 </div>
 
                 <div className="flex w-full flex-col space-y-8 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
-                    <Button
+                    
+                <Button
                         asChild
                         variant="outline"
                         size="lg">

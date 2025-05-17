@@ -5,10 +5,7 @@ function Feature() {
     <div className="w-full py-20 lg:py-40">
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
-          <div className="flex gap-4 flex-col items-start">
-            <div>
-              <Badge>Platform</Badge>
-            </div>
+          <div className="flex gap-4 flex-col items-start"> 
             <div className="flex gap-2 flex-col">
               <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
                 Something new!
