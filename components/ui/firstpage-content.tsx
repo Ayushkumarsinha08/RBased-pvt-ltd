@@ -1,147 +1,113 @@
-"use client"
+"use client";
+import { useState, useEffect } from 'react';
 
-import { useEffect, useRef } from "react"
-import { useInView } from "motion/react"
-
-import { TextRotate, TextRotateRef } from "@/components/ui/text-rotate"
-
-const exampleImages = [
-  {
-    url: "https://images.pexels.com/photos/31696524/pexels-photo-31696524/free-photo-of-pink-notre-dame-cathedral-in-ho-chi-minh-city.jpeg",
-    author: "Branislav Rodman",
-    link: "https://unsplash.com/photos/a-black-and-white-photo-of-a-woman-brushing-her-teeth-r1SjnJL5tf0",
-    title: "A Black and White Photo of a Woman Brushing Her Teeth",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1640680608781-2e4199dd1579?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://unsplash.com/photos/a-painting-of-a-palm-leaf-on-a-multicolored-background-AaNPwrSNOFE",
-    title: "Neon Palm",
-    author: "Tim Mossholder",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1726083085160-feeb4e1e5b00?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://unsplash.com/photos/a-blurry-photo-of-a-crowd-of-people-UgbxzloNGsc",
-    author: "ANDRII SOLOK And the rest of the world will be conshsfd fsdjklah fsdajkhasfd sdfahj kjfdsh a       fdjkfsdja  asdfjha dfsjhka sdfjhfsd fjdhuiqwerjh jkldhdfs sdfjkh sdfajkh fdshfd fsdjhksd sdfjhuirerjew uivcbfdui euifjnfskdjiu fduihj fsdajiuew jihuifjdsabn  fuijkfu eruiodfjh",
-    title: "A blurry photo of a crowd of people",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&w=2838&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://unsplash.com/photos/rippling-crystal-blue-water-9-OCsKoyQlk",
-    author: "Wesley Tingey",
-    title: "Rippling Crystal Blue Water",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1624344965199-ed40391d20f2?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://unsplash.com/de/fotos/mann-im-schwarzen-hemd-unter-blauem-himmel-m8RDNiuEXro",
-    author: "Serhii Tyaglovsky",
-    title: "Mann im schwarzen Hemd unter blauem Himmel",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1689553079282-45df1b35741b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://unsplash.com/photos/a-woman-with-a-flower-crown-on-her-head-0S3muIttbsY",
-    author: "Vladimir Yelizarov",
-    title: "A women with a flower crown on her head",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1721968317938-cf8c60fccd1a?q=80&w=2728&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "A blurry photo of white flowers in a field",
-    author: "Eugene Golovesov",
-    link: "https://unsplash.com/photos/a-blurry-photo-of-white-flowers-in-a-field-6qbx0lzGPyc",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1677338354108-223e807fb1bd?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    author: "Mathilde Langevin",
-    link: "https://unsplash.com/photos/a-table-topped-with-two-wine-glasses-and-plates-Ig0gRAHspV0",
-    title: "A table topped with two wine glasses and plates",
-  },
-]
-
-function Item({
-  index,
-  image,
-  link,
-  onInView,
-}: {
-  index: number
-  image: string
-  link: string
-  onInView: (inView: boolean) => void
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, {
-    margin: "-45% 0px -45% 0px",
-  })
-
+export default function Content() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const features = [
+    {
+      title: "Seamless Experience",
+      description: "Navigate through our intuitive interface with ease",
+      image: "/public/istockphoto-2153795538-1024x1024.jpg" // You'll need to add these images to your public folder
+    },
+    {
+      title: "Powerful Tools",
+      description: "Access professional-grade tools designed for efficiency",
+      image: "/images/tools.jpg"
+    },
+    {
+      title: "Community Support",
+      description: "Join thousands of satisfied users in our growing community",
+      image: "/images/community.jpg"
+    }
+  ];
+  
   useEffect(() => {
-    onInView(isInView)
-  }, [isInView, onInView])
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % features.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % features.length);
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + features.length) % features.length);
+  };
 
   return (
-    <section
-      ref={ref}
-      key={index}
-      className="h-full w-1/2 flex justify-center items-center snap-center"
-    >
-      <div className="w-200 h-100 sm:w-36 sm:h-36 md:w-40 md:h-40">
-        <a href={link} target="_blank" rel="noreferrer">
-          <img
-            src={image}
-            alt={`Example ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        </a>
-      </div>
-    </section>
-  )
-}
-
-export default function Content(){
-
-    const textRotateRef = useRef<TextRotateRef>(null)
-    const slicedImages = exampleImages.slice(1)
-  
-    const handleInView = (index: number, inView: boolean) => {
-      if (inView && textRotateRef.current) {
-        textRotateRef.current.jumpTo(index)
-      }
-    }
-
-
-    return(
-        
-        <div className="w-full h-screen flex bg-gray-900">
-        <div className="w-full h-full relative">
-          <div className="sticky top-0 h-screen w-full flex items-center justify-end bg-black text-gray-100">
-            <div className="w-2/3">
-              <TextRotate
-                ref={textRotateRef}
-                texts={slicedImages.map((image) => image.author)}
-                mainClassName="text-sm sm:text-3xl md:text-4xl w-full justify-center flex pt-2 text-gray-100"
-                splitLevelClassName="overflow-hidden pb-2"
-                staggerFrom={"first"}
-                animatePresenceMode="wait"
-                loop={false}
-                auto={false}
-                staggerDuration={0.005}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -50 }}
-                transition={{ type: "spring", duration: 0.6, bounce: 0 }}
-              />
-            </div>
-          </div>
-          <div className="absolute inset-0 overflow-auto snap-y snap-mandatory">
-            {slicedImages.map((image, index) => (
-              <Item
-                key={index}
-                index={index}
-                image={image.url}
-                link={image.link}
-                onInView={(inView) => handleInView(index, inView)}
-              />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4">
+      <h1 className="text-5xl font-bold mb-4 text-center">Welcome to Our App</h1>
+      <p className="text-xl mb-12 text-center max-w-2xl">Your one-stop solution for all your needs.</p>
+      
+      {/* Carousel */}
+      <div className=" w-auto max-w-full mb-16">
+        <div className="overflow-hidden rounded-lg shadow-2xl">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out" 
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {features.map((feature, index) => (
+              <div key={index} className="w-full flex-shrink-0">
+                <div className="relative h-64 md:h-96 bg-muted">
+                  {/* You can replace this with actual images */}
+                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold">
+                    {feature.title}
+                  </div>
+                </div>
+                <div className="bg-muted p-6">
+                  <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
+        
+        {/* Navigation Arrows */}
+        <button 
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-r-lg hover:bg-black/70"
+        >
+          &#10094;
+        </button>
+        <button 
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-l-lg hover:bg-black/70"
+        >
+          &#10095;
+        </button>
+        
+        {/* Dots indicator */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+          {features.map((_, index) => (
+            <button 
+              key={index}
+              onClick={() => setCurrentSlide(index)} 
+              className={`w-3 h-3 rounded-full ${currentSlide === index ? 'bg-white' : 'bg-white/50'}`}
+            />
+          ))}
+        </div>
       </div>
-    )
+      
+      {/* Benefits Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full mb-12">
+        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-3 text-blue-400">Time Saving</h2>
+          <p>Our app streamlines your workflow, saving you valuable time on everyday tasks.</p>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-3 text-green-400">Cost Effective</h2>
+          <p>Get premium features at competitive prices with flexible subscription options.</p>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold mb-3 text-purple-400">User Friendly</h2>
+          <p>Designed with you in mind, our intuitive interface makes complex tasks simple.</p>
+        </div>
+      </div> 
+    </div>
+  );
 }
