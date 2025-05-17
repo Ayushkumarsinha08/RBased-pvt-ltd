@@ -56,14 +56,23 @@ export function Navbar() {
 
                 <div className="flex w-full flex-col space-y-8 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
                     
-                <Button
+                {session.data?.user &&  <Button
                         asChild
                         variant="outline"
                         size="lg">
-                        <Link href="#">
+                        <Link onClick={() => signOut()} href="#">
+                            <span>Logout</span>
+                        </Link>
+                    </Button>}
+                    {!session.data?.user &&
+                    <Button
+                        asChild
+                        variant="outline"
+                        size="lg">
+                        <Link onClick={() => signIn()} href="#">
                             <span>Login</span>
                         </Link>
-                    </Button>
+                    </Button>}
                   </div> 
                 </div>
             </div>
