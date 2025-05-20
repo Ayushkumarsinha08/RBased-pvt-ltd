@@ -8,9 +8,9 @@ import { signIn ,signOut, useSession} from "next-auth/react";
 
 const menuItems = [
     { name: 'Home', href: '/' },
-    { name: 'Solution', href: '/solution' },
-    { name: 'Previous', href: '/previous' },
-    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/solution' },
+    { name: 'Projects', href: '/previous' },
+    { name: 'Contact Us', href: '/about' },
 ]
 
 export function Navbar() {
@@ -26,7 +26,7 @@ export function Navbar() {
                 <Link
                     href="/"
                     aria-label="home"
-                    className="flex items-center space-x-2">
+                    className="flex items-center w-full space-x-2">
                     <Logo/>
                 </Link>
 

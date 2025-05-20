@@ -8,7 +8,7 @@ export default function Content() {
     {
       title: "Seamless Experience",
       description: "Navigate through our intuitive interface with ease",
-      image: "/public/istockphoto-2153795538-1024x1024.jpg" // You'll need to add these images to your public folder
+      image:"/public/background-img.jpg" // You'll need to add these images to your public folder
     },
     {
       title: "Powerful Tools",
@@ -40,11 +40,9 @@ export default function Content() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4">
-      <h1 className="text-5xl font-bold mb-4 text-center">Welcome to Our App</h1>
-      <p className="text-xl mb-12 text-center max-w-2xl">Your one-stop solution for all your needs.</p>
       
       {/* Carousel */}
-      <div className=" w-auto max-w-full mb-16">
+      <div className=" w-full h-screen max-w-full mb-16">
         <div className="overflow-hidden rounded-lg shadow-2xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out" 
@@ -52,7 +50,7 @@ export default function Content() {
           >
             {features.map((feature, index) => (
               <div key={index} className="w-full flex-shrink-0">
-                <div className="relative h-64 md:h-96 bg-muted">
+                <div className="relative h-64 md:h-screen bg-muted">
                   {/* You can replace this with actual images */}
                   <div className="absolute inset-0 flex items-center justify-center text-xl font-bold">
                     {feature.title}
