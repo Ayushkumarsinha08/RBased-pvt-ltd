@@ -11,9 +11,10 @@ export default function Contact() {
         <div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
           <div className="w-full h-[90vh]">
             <iframe 
-              src={process.env.GOOGLE_FORM_URL} // Replace with your Google Form URL
+              src={process.env.GOOGLE_FORM_URL}
               className="w-full h-full"
               title="Contact Form"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"
             >
               Loading...
             </iframe>
