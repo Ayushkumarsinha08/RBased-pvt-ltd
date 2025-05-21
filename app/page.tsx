@@ -12,8 +12,10 @@ export default function Home (){
             </div>
             <div>
             <Content/>
-            <Footer/>
-        </div>
-        </div>
+            </div>
+            <div className="flex flex-col justify-end items-center">
+                <hr className="w-full border-white/20 " />
+                <Footer/>
+            </div>  </div>
     )
 }

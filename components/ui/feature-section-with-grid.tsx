@@ -1,66 +1,62 @@
 
 function Feature() {
   return (
-    <div className="w-full py-20 lg:py-40">
+    <div className="w-full bg-black py-20 lg:py-40">
       <div className="container mx-auto">
-        <div className="flex flex-col gap-10">
-          <div className="flex gap-4 flex-col items-start"> 
-            <div className="flex gap-2 flex-col">
-              <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
-                Something new!
+        <div className="flex flex-col gap-12 items-center">
+          <div className="flex gap-4 flex-col items-center"> 
+            <div className="flex gap-2 flex-col items-center">
+              <h2 className="text-3xl md:text-5xl tracking-tighter max-w-2xl font-regular text-left">
+                Services We Provide is Here
               </h2>
-              <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground  text-left">
-                Managing a small business today is already tough.
+              <p className="text-lg max-w-xl lg:max-w-5xl leading-relaxed tracking-tight text-muted-foreground  text-left">
+              We use the latest and best scientifically approved methodologies available in the research domain and help in GIS data collection, management and visualization through interactive and user-friendly apps and web portal development. 
               </p>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/background-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2 "></div>
+              <h3 className="text-xl tracking-tight">RESEARCH BASED SOLUTIONS</h3>
               <p className="text-muted-foreground text-base">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/images/research-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-xl tracking-tight">CAPACITY BUILDING</h3>
               <p className="text-muted-foreground text-base">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/images/water-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-xl tracking-tight">WATER RESOURCES</h3>
               <p className="text-muted-foreground text-base">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+              Hydrological modelling to quantify the distribution of water coming into the basin into different components like Runoff estimation and groundwater, Glaciological studies, Hydraulic modelling of rivers, etc.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/background-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-xl tracking-tight">DISASTER MANAGEMENT</h3>
               <p className="text-muted-foreground text-base">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+              Flood and flash flood Mapping, Modelling, Risk assessment and mitigation strategies, Forest fire mapping and prediction, Landslide risk-mapping, Drought prediction and damage assessment, etc.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/background-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-xl tracking-tight">CLIMATE STUDIES</h3>
               <p className="text-muted-foreground text-base">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+              Climate change and climate variability studies, Numerical modelling of rainfall, Seasonal comparison of rainfall datasets, Asssessment of Weather and Temperature extremes, etc.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="bg-muted rounded-md aspect-video mb-2"></div>
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <div className="bg-[url('/background-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-xl tracking-tight">URBAN STUDIES</h3>
               <p className="text-muted-foreground text-base">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+              Urban expansion, Site suitability studies, Digitisation and multi-layer map making, Digitisation and multi-layer map making, Solid and wastewater management, etc.
               </p>
             </div>
           </div>

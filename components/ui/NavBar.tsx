@@ -8,9 +8,9 @@ import { signIn ,signOut, useSession} from "next-auth/react";
 
 const menuItems = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/solution' },
-    { name: 'Projects', href: '/previous' },
-    { name: 'Contact Us', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact Us', href: '/contact' },
 ]
 
 export function Navbar() {

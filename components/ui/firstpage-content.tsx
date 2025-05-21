@@ -6,19 +6,19 @@ export default function Content() {
   
   const features = [
     {
-      title: "Seamless Experience",
+      title: "RBASED SERVICES PVT LTD",
       description: "Navigate through our intuitive interface with ease",
-      image:"/public/background-img.jpg" // You'll need to add these images to your public folder
+      image:"/map-img.jpg" // You'll need to add these images to your public folder
     },
     {
-      title: "Powerful Tools",
+      title: "RBASED SERVICES PVT LTD",
       description: "Access professional-grade tools designed for efficiency",
-      image: "/images/tools.jpg"
+      image: "/easy.jpg"
     },
     {
-      title: "Community Support",
+      title: "RBASED SERVICES PVT LTD",
       description: "Join thousands of satisfied users in our growing community",
-      image: "/images/community.jpg"
+      image: "/background-img.jpg"
     }
   ];
   
@@ -42,7 +42,7 @@ export default function Content() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4">
       
       {/* Carousel */}
-      <div className=" w-full h-screen max-w-full mb-16">
+      <div className=" w-full h-[90vh] pt-12 max-w-full mb-16">
         <div className="overflow-hidden rounded-lg shadow-2xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out" 
@@ -50,14 +50,20 @@ export default function Content() {
           >
             {features.map((feature, index) => (
               <div key={index} className="w-full flex-shrink-0">
-                <div className="relative h-64 md:h-screen bg-muted">
-                  {/* You can replace this with actual images */}
-                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold">
+                <div 
+                  className="relative h-64 md:h-[80vh]"
+                  style={{
+                    backgroundImage: `url(${feature.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold bg-black/40">
                     {feature.title}
                   </div>
                 </div>
-                <div className="bg-muted p-6">
-                  <h3 className="text-2xl font-semibold mb-2">{feature.title}</h3>
+                <div className="p-6 bg-black">
+                    <h1 className="text-3xl font-extrabold tracking-tight mb-4 text-center pt-4">{feature.title}</h1>
                   <p className="text-gray-300">{feature.description}</p>
                 </div>
               </div>
@@ -91,21 +97,7 @@ export default function Content() {
         </div>
       </div>
       
-      {/* Benefits Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full mb-12">
-        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold mb-3 text-blue-400">Time Saving</h2>
-          <p>Our app streamlines your workflow, saving you valuable time on everyday tasks.</p>
-        </div>
-        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold mb-3 text-green-400">Cost Effective</h2>
-          <p>Get premium features at competitive prices with flexible subscription options.</p>
-        </div>
-        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-bold mb-3 text-purple-400">User Friendly</h2>
-          <p>Designed with you in mind, our intuitive interface makes complex tasks simple.</p>
-        </div>
-      </div> 
+      
     </div>
   );
 }
