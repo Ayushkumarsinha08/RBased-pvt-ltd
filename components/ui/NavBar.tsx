@@ -19,7 +19,7 @@ export function Navbar() {
   return (
     <nav
     data-state={menuState && 'active'}
-    className="group fixed top-0 z-50 w-full border-b border-dashed bg-white backdrop-blur dark:bg-zinc-950/50 lg:dark:bg-transparent">
+    className="group fixed top-0 z-50 w-full border-b border-dashed bg-white backdrop-blur dark:bg-zinc-950/50 lg:dark:bg-black">
     <div className="m-auto max-w-5xl px-6">
         <div className="flex flex-wrap items-center justify-between gap-10 py-5 lg:gap-0 lg:py-4">
             <div className="flex w-auto justify-start ">

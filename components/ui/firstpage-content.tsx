@@ -13,7 +13,7 @@ export default function Content() {
     {
       title: "RBASED SERVICES PVT LTD",
       description: "Access professional-grade tools designed for efficiency",
-      image: "/easy.jpg"
+      image: "/images/karnatak.jpg"
     },
     {
       title: "RBASED SERVICES PVT LTD",
@@ -28,7 +28,7 @@ export default function Content() {
     }, 5000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [features.length]);
   
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % features.length);
@@ -58,13 +58,11 @@ export default function Content() {
                     backgroundPosition: 'center'
                   }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold bg-black/40">
-                    {feature.title}
-                  </div>
+                  
                 </div>
                 <div className="p-6 bg-black">
-                    <h1 className="text-3xl font-extrabold tracking-tight mb-4 text-center pt-4">{feature.title}</h1>
-                  <p className="text-gray-300">{feature.description}</p>
+                    <h1 className="text-3xl font-extrabold tracking-tight text-center pt-4">{feature.title} </h1>
+                    <h2 className="text-xl font-semibold mb-2 pb-2 text-center">Research-Based Solutions to Real-Life Problems through Remote Sensing and GIS</h2>
                 </div>
               </div>
             ))}
