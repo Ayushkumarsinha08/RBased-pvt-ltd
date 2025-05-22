@@ -88,7 +88,7 @@ export default function Login() {
         />
         <Button
           type="submit"
-          className=" bg-gray-950 text-xl text-gray-300 hover:cursor-pointer hover:bg-black "
+          className=" bg-gray-950 text-xl text-gray-300 hover:cursor-pointer hover:bg-muted "
           disabled={loading}
         >
           {loading ? "Loading..." : "Login"}
