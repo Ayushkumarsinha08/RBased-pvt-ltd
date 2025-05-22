@@ -1,8 +1,10 @@
+import Image from 'next/image';
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white w-full">
       <div className="text-center py-10 flex flex-col justify-center items-center mb-4"> 
-        <img src="/logo.jpg" alt="RBS Logo" className="h-10 w-25 " />
+        <Image src="/logo.jpg" alt="RBS Logo" width={100} height={40} className="h-10 w-auto" />
         <span className="font-bold text-3xl ">RBased Services Pvt. Ltd</span>
       <p className="text-lg ">
       B-28 A, RAJIV NAGAR, BEGUMPUR, OPP. ROHINI SECTOR-22, DELHI-110008 ; ©  2024 RBased Services

@@ -29,7 +29,7 @@ export default function Contact() {
         {/* Map section */}
         <div className="mt-16 mb-12">
           <h2 className="text-2xl font-semibold text-center mb-6">Find Us</h2>
-          <div className="h-[50vh] w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+          <div className="h-[50vh] w-full max-w-8xl mx-auto rounded-lg overflow-hidden shadow-lg">
             <MapComponent />
           </div>
         </div>

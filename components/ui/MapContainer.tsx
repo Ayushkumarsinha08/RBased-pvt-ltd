@@ -1,10 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import 'leaflet/dist/leaflet.css';
+
+interface MapComponentsType {
+  L: typeof import('leaflet');
+  defaultIcon: import('leaflet').Icon;
+  MapContainer: typeof import('react-leaflet')['MapContainer'];
+  TileLayer: typeof import('react-leaflet')['TileLayer'];
+  Marker: typeof import('react-leaflet')['Marker'];
+  Popup: typeof import('react-leaflet')['Popup'];
+  useMap: typeof import('react-leaflet')['useMap'];
+  [key: string]: unknown; // For any other components that might be spread
+}
 
 export default function MapComponentImpl() {
-  const [MapComponents, setMapComponents] = useState<any>(null);
-
+  const [MapComponents, setMapComponents] = useState<MapComponentsType | null>(null);
   useEffect(() => {
     // Only import these modules on the client side
     const importModules = async () => {
@@ -12,9 +23,10 @@ export default function MapComponentImpl() {
         // Import Leaflet first
         const L = await import('leaflet');
         
-        // Import Leaflet CSS
-        await import('leaflet/dist/leaflet.css');
+        // Don't try to dynamically import CSS - it should be imported at the top level
+        // or handled by Next.js config
         
+        // Import React-Leaflet components
         // Import React-Leaflet components
         const reactLeaflet = await import('react-leaflet');
         
@@ -61,22 +73,33 @@ export default function MapComponentImpl() {
 
   // Once components are loaded, render the map
   const { MapContainer, TileLayer, Marker, Popup, useMap } = MapComponents;
-  const { defaultIcon, L } = MapComponents;
+  const { defaultIcon } = MapComponents;
 
   // Define LocationMarker inside render to have access to imported components
   const LocationMarker = () => {
-    const [position, setPosition] = useState(null);
-    const [error, setError] = useState(null);
+    const [position, setPosition] = useState<{lat: number; lng: number} | null>(null);
+    const [error, setError] = useState<string | null>(null);
     const map = useMap();
 
     useEffect(() => {
       // Set up event handlers
-      const handleLocationFound = (e) => {
+      // Define interface for the location event
+      interface LocationEvent {
+        latlng: {
+          lat: number;
+          lng: number;
+        };
+        accuracy: number;
+        bounds: L.LatLngBounds;
+        timestamp: number;
+      }
+      
+      const handleLocationFound = (e: LocationEvent): void => {
         setPosition(e.latlng);
         setError(null);
       };
 
-      const handleLocationError = (e) => {
+      const handleLocationError = (e: { message: string }) => {
         setError(`Location access error: ${e.message}`);
         console.error('Location error:', e);
         map.setView([51.505, -0.09], 13);
