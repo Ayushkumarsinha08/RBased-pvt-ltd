@@ -13,8 +13,8 @@ export default function Contact() {
         <h1 className="text-3xl font-bold text-center mb-12">Contact Us</h1>
 
         {/* Contact form section */}
-        <div className="bg-white rounded-lg shadow-md p-1 max-w-3xl mx-auto mb-16">
-          <div className="w-full h-[60vh]">
+        <div className="bg-white h-screen rounded-lg shadow-md p-1 max-w-3xl mx-auto mb-16">
+          <div className="w-full h-[100vh]">
             <iframe
               src={process.env.GOOGLE_FORM_URL}
               className="w-full h-full"

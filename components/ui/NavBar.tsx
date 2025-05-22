@@ -28,6 +28,9 @@ export function Navbar() {
                     aria-label="home"
                     className="flex items-center w-full space-x-2">
                     <Logo/>
+                    <span className="hidden text-3xl font-bold text-gray-100 lg:block">
+                        RBased Services Pvt. Ltd.
+                    </span>
                 </Link>
 
                 <button
