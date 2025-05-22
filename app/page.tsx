@@ -11,6 +11,9 @@ export default function Home (){
             </div>
             <div>
             <Content/>
+
+
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4 pt-5">  
             <Card title={"Research Based Solution"} description={"hi thsere here we write some thing about the site"}/>
             <div className="flex flex-col items-center space-y-4">

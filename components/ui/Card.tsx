@@ -1,6 +1,5 @@
-import { title } from "process";
-
-export default function Card({title, description}: {readonly title: string; readonly description: string;}) {
+export default function Card({title, description}: {readonly title: string, readonly description: string}) {
+  
   return (
     <div >
        <div className="flex flex-col gap-4 ">
