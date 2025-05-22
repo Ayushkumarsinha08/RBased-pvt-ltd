@@ -72,7 +72,7 @@ export function Navbar() {
                         asChild
                         variant="outline"
                         size="lg">
-                        <Link onClick={() => signIn()} href="#">
+                        <Link href="/login">
                             <span>Login</span>
                         </Link>
                     </Button>}
