@@ -64,11 +64,11 @@ export function SignupForm() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname" className="text-xl">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <Input id="firstname" placeholder="Rohan" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname" className="text-xl ">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <Input id="lastname" placeholder="Kumar" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
@@ -109,7 +109,7 @@ export function SignupForm() {
            
             <span className=" text-neutral-700 dark:text-neutral-300 text-lg">
               
-              Have to Login
+               Login
             </span>
             <BottomGradient />
           </button>
