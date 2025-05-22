@@ -7,15 +7,15 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen bg-black text-gray-100">
       {/* Navigation */}
       <Navbar />
-      
+
       {/* Main content */}
       <div className="container mx-auto py-12 px-4 flex-grow">
         <h1 className="text-3xl font-bold text-center mb-12">Contact Us</h1>
-        
+
         {/* Contact form section */}
-        <div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto mb-16">
+        <div className="bg-white rounded-lg shadow-md p-1 max-w-3xl mx-auto mb-16">
           <div className="w-full h-[60vh]">
-            <iframe 
+            <iframe
               src={process.env.GOOGLE_FORM_URL}
               className="w-full h-full"
               title="Contact Form"
@@ -25,7 +25,7 @@ export default function Contact() {
             </iframe>
           </div>
         </div>
-        
+
         {/* Map section */}
         <div className="mt-16 mb-12">
           <h2 className="text-2xl font-semibold text-center mb-6">Find Us</h2>
@@ -34,12 +34,13 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      
+
       {/* Divider */}
       <hr className="w-full border-white/20" />
-      
+
       {/* Footer */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
+
