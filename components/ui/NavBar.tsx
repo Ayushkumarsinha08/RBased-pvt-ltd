@@ -77,7 +77,7 @@ export function Navbar() {
                         asChild
                         variant="outline"
                         size="lg">
-                        <Link href="#">
+                        <Link href="./signup">
                             <span>Signup</span>
                         </Link>
                     </Button>
