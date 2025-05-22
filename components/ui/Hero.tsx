@@ -40,7 +40,7 @@ const VideoCard = ({ title, description, videoId, videoUrl }: VideoCardProps) =>
 
 export default function Hero() {
   // Sample video data - easily modifiable
-  const videos = [
+  const videos: {title: string; description: string; videoId?: string; videoUrl?: string}[] = [
     {
       title: "4 Days Workshop on Introduction to Python | RBased Service Private Limited | Online Workshops",
       description: "Learn about everything we offer and how we can help you succeed.",

@@ -52,7 +52,7 @@ export function SignupForm() {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black dark:bg-gradient-to-b from-gray-950 to black">
       <h2 className="font-bold text-center text-3xl text-neutral-800 dark:text-neutral-200">
         RBASED Pvt Ltd
       </h2>
