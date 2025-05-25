@@ -6,6 +6,12 @@ This is a [Next.js](https://nextjs.org) project for RBased Services Pvt Ltd, pro
 
 ## Getting Started
 
+First, clone this repo:
+
+```bash
+git clone https://github.com/gulshank0/RBased-pvt-ltd.git
+```
+
 First, install the dependencies:
 
 ```bash
