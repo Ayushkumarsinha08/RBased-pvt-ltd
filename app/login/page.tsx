@@ -39,7 +39,7 @@ export default function Login() {
         // Store user info or token in localStorage/cookies if needed
         if (data.token) {
           localStorage.setItem("token", data.token);
-        }
+        }SIGNUP
         
         // Redirect to home page after successful login
         router.push("/");
@@ -72,7 +72,7 @@ export default function Login() {
         )}
         <input
           type="email"
-          className="bg-red-100 w-full h-10 rounded-xl text-black focus:ring-2 placeholder:text-center px-4 py-4"
+          className="bg-muted w-full h-10 rounded-xl border-2 text-white focus:ring-2 placeholder:text-center px-4 py-4"
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -80,7 +80,7 @@ export default function Login() {
         />
         <input
           type="password"
-          className="bg-red-100 w-full h-10 rounded-xl text-black placeholder:text-center px-4 py-4"
+          className="bg-muted w-full h-10 rounded-xl text-white placeholder:text-center px-4 py-4"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -88,10 +88,11 @@ export default function Login() {
         />
         <Button
           type="submit"
-          className=" bg-gray-950 text-xl text-gray-300 hover:cursor-pointer hover:bg-muted "
+          className="bg-muted text-2xl w-full text-gray-300 hover:cursor-pointer transition-colors duration-300 ease-in-out rounded-xl h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] relative overflow-hidden group hover:bg-gradient-to- from-black"
           disabled={loading}
         >
-          {loading ? "Loading..." : "Login"}
+          <span className="relative z-10">{loading ? "Loading..." : "Login"}</span>
+          <div className="absolute bottom-0 left-0 right-0 h-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent group-hover:h-[2px] transition-all duration-400 hover:bg-muted"></div>
         </Button>
         <p className="text-white text-center">
           Do not have an account?{" "}
