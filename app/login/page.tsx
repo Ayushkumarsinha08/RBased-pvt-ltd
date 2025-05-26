@@ -35,13 +35,12 @@ export default function Login() {
   
         // Login successful
         console.log("Login successful", data);
-        
+        router.push("/"); // Redirect to home page or dashboard
         // Store user info or token in localStorage/cookies if needed
         if (data.token) {
           localStorage.setItem("token", data.token);
-        }SIGNUP
-        
-        // Redirect to home page after successful login
+        }
+        // Redirect to home page or dashboard
         router.push("/");
       } catch (err: unknown) {
         console.error("Login error:", err);
@@ -86,14 +85,12 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button
+        <button
           type="submit"
           className="bg-muted text-2xl w-full text-gray-300 hover:cursor-pointer transition-colors duration-300 ease-in-out rounded-xl h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] relative overflow-hidden group hover:bg-gradient-to- from-black"
-          disabled={loading}
-        >
-          <span className="relative z-10">{loading ? "Loading..." : "Login"}</span>
-          <div className="absolute bottom-0 left-0 right-0 h-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent group-hover:h-[2px] transition-all duration-400 hover:bg-muted"></div>
-        </Button>
+          disabled={loading} 
+        > {loading ? "Login..." : "Login"}
+        </button>
         <p className="text-white text-center">
           Do not have an account?{" "}
           <Link href="/signup" className="underline">
