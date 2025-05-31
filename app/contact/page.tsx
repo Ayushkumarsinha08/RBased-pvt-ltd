@@ -1,7 +1,6 @@
 import Footer from "@/components/ui/Footer";
 import { Navbar } from "@/components/ui/NavBar";
 import MapComponent from "@/components/ui/MapContainer";
-
 export default function Contact() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-gray-100">
@@ -35,10 +34,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Divider */}
-      <hr className="w-full border-white/20" />
-
-      {/* Footer */}
+     
       <Footer />
     </div>
   );

@@ -14,7 +14,6 @@ export default function Signup() {
         </div>
       </div>
     </div>
-    <hr className="w-full border-white/20" />
     <Footer />
     </div>
   );

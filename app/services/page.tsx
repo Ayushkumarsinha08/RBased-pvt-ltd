@@ -27,7 +27,6 @@ export default function Services(){
              <div className="w-full">
                 <Navbar/>
                <Feature />
-               <hr className="w-full border-white/20 " />
                <Footer/>
 
     </div>

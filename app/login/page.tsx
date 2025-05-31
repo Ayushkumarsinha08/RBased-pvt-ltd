@@ -100,7 +100,6 @@ export default function Login() {
         </div>
       </div>
     </div>
-    <hr className="w-full border-white/20" />
     <Footer/>
   </div>
 

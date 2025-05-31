@@ -10,7 +10,6 @@ export default function Projects() {
       <div className="pt-10">
       <Hero />
     </div>
-    <hr className="w-full border-white/20" />
 <Footer/>
     </div>
   );
