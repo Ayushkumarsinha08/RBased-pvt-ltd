@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/ui/NavBar";
@@ -35,13 +34,13 @@ export default function Login() {
   
         // Login successful
         console.log("Login successful", data);
-        router.push("/"); // Redirect to home page or dashboard
+     // Redirect to home page or dashboard
         // Store user info or token in localStorage/cookies if needed
         if (data.token) {
           localStorage.setItem("token", data.token);
         }
+        router.push("/services"); // Redirect to home page or dashboard
         // Redirect to home page or dashboard
-        router.push("/");
       } catch (err: unknown) {
         console.error("Login error:", err);
         setError(err instanceof Error ? err.message : "Invalid email or password. Please try again.");

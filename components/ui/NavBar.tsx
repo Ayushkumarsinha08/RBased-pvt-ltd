@@ -10,12 +10,14 @@ const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Workshops', href: '/workshops' },
     { name: 'Contact Us', href: '/contact' },
 ]
 
 export function Navbar() {
   const [menuState, setMenuState] = React.useState(false);   
-  const session = useSession(); 
+  const session = useSession();
+  const token = localStorage.getItem("token");  
   return (
     <nav
     data-state={menuState && 'active'}
@@ -59,15 +61,18 @@ export function Navbar() {
 
                 <div className="flex w-full flex-col space-y-8 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
                     
-                {session.data?.user &&  <Button
+                { token && <Button
                         asChild
                         variant="outline"
                         size="lg">
-                        <Link onClick={() => signOut()} href="#">
+                        <Link onClick={() => {
+                            localStorage.removeItem("token") ;
+                            signOut();
+                        }} href="#">
                             <span>Logout</span>
                         </Link>
                     </Button>}
-                    {!session.data?.user &&
+                    { !token &&
                     <Button
                         asChild
                         variant="outline"
