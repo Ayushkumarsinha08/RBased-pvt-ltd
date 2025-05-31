@@ -93,17 +93,17 @@ export default function Hero() {
       <div className="max-w-8xl mx-auto mt-20 text-center">
         <h2 className="text-3xl font-bold mb-6">Why Choose Our Platform?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-muted p-6 rounded-lg">
             <div className="text-blue-400 text-3xl mb-3">✨</div>
             <h3 className="text-xl font-semibold mb-2">High Quality</h3>
             <p className="text-gray-300">Premium content carefully selected for our audience.</p>
           </div>
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-muted p-6 rounded-lg">
             <div className="text-purple-400 text-3xl mb-3">🚀</div>
             <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
             <p className="text-gray-300">Quick access to all videos with optimized streaming.</p>
           </div>
-          <div className="bg-gray-800/50 p-6 rounded-lg">
+          <div className="bg-muted p-6 rounded-lg">
             <div className="text-green-400 text-3xl mb-3">🛠️</div>
             <h3 className="text-xl font-semibold mb-2">Customizable</h3>
             <p className="text-gray-300">Adapt our solutions to fit your specific needs.</p>

@@ -8,8 +8,8 @@ export default function Footer() {
           {/* Column 1: Company Information */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-3">
-              <Image src="/logo.jpg" alt="RBS Logo" width={60} height={40} className="h-10 w-auto" />
-              <span className="font-bold text-xl">RBased Services Pvt. Ltd</span>
+              <Image src="/logo.jpg" alt="RBS Logo" width={80} height={60} className="h-10 w-auto" />
+              <span className="font-bold text-2xl">RBased Services Pvt. Ltd</span>
             </div>
             <p className="text-sm flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Column 2: Contact Us */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-bold text-xl">Contact Us</h3>
+            <h3 className="font-bold text-2xl">Contact Us</h3>
             <div className="space-y-2">
               <p className="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Column 3: Map */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-bold text-xl">Visit Us</h3>
+            <h3 className="flex items-center font-bold text-2xl">Visit Us</h3>
             <div className="w-90 h-48 bg-gray-800 rounded overflow-hidden">
               <MapComponent />
               
@@ -78,8 +78,8 @@ export default function Footer() {
 
           {/* Column 4: Reach Out (Google Form) */}
           <div className="flex flex-col space-y-4">
-            <h3 className="font-bold text-xl">Reach Out</h3>
-            <p className="text-sm mb-2">Have questions? Fill out our quick contact form, and we will get back to you shortly.</p>
+            <h3 className="font-bold text-2xl">Reach Out</h3>
+            <p className="w-100 text-sm mb-2">Have questions? Fill out our quick contact form, and we will get back to you shortly.</p>
             <div className="w-100 h-48 bg-gray-800 rounded overflow-hidden">
               <iframe 
                 src={process.env.GOOGLE_FORM_URL}

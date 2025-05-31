@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/ui/NavBar";
 import Footer from "@/components/ui/Footer";
 import { signIn } from "next-auth/react";
+import { IconBrandGoogle } from "@tabler/icons-react";
+
 
 export default function Login() {
     const router = useRouter();
@@ -74,7 +76,7 @@ export default function Login() {
               )}
               <input
                 type="email"
-                className="bg-muted w-full h-13 rounded-xl border-2 text-white focus:ring-2 placeholder:text-center px-4 py-4"
+                className="bg-muted w-full h-13 rounded-xl border-2 text-white focus:outline-none focus:ring-2 focus:ring-gray-900 placeholder:text-center px-4 py-4"
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +84,7 @@ export default function Login() {
               />
               <input
                 type="password"
-                className="bg-muted w-full h-13 rounded-xl text-white placeholder:text-center px-4 py-4"
+                className="bg-muted w-full h-13 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-900 text-white placeholder:text-center px-4 py-4"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -97,32 +99,45 @@ export default function Login() {
               </button>
               <button
                 type="submit"
-                className="bg-muted text-xl w-full text-gray-300 hover:cursor-pointer transition-colors duration-300 ease-in-out rounded-xl h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] relative overflow-hidden group hover:bg-gradient-to- from-black"
+                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
                 disabled={loading} 
               > 
-                {loading ? "Login..." : "Login"}
+                 <span className=" text-neutral-700 dark:text-neutral-300 text-lg">
+              
+                {loading ? "Loading..." : "Login"}
+            </span>
+            <BottomGradient />
               </button>
               <div className="grid grid-cols-2 gap-4">  
               <button
                 type="button"
-                className="bg-muted text-xl w-full text-gray-300 hover:cursor-pointer transition-colors duration-300 ease-in-out rounded-xl h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] relative overflow-hidden group hover:bg-gradient-to- from-black"
+                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
                 onClick={() => signIn(" ")}
               >
-                Google
+
+                <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+                <span className="text-neutral-700 dark:text-neutral-300 text-lg">Google</span>
+                <BottomGradient />
               </button>
               <button
                 type="button"
-                className="bg-muted text-xl w-full text-gray-300 hover:cursor-pointer transition-colors duration-300 ease-in-out rounded-xl h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] relative overflow-hidden group hover:bg-gradient-to- from-black"
-                onClick={() => router.push("/services")}
+                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+                onClick={() => router.push("/otp-login")}
               >
-                OTP
+
+             <span className=" text-neutral-700 dark:text-neutral-300 text-lg">  
+
+                OTP Login
+              </span>
+
+              <BottomGradient />
               </button>
 
               </div>
               <p className="text-white text-center">
                 Do not have an account?{" "}
                 <Link href="/signup" className="underline">
-                  Sign up
+                  Register
                 </Link>
               </p>
             </form>
@@ -135,3 +150,16 @@ export default function Login() {
     </div>
   );
 }
+
+
+
+
+
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    </>
+  );
+};

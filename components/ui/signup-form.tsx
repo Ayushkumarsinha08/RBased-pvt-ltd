@@ -108,7 +108,7 @@ export function SignupForm() {
            
             <span className=" text-neutral-700 dark:text-neutral-300 text-lg">
               
-               Login
+               {loading ? "Loading..." : "Login"}
             </span>
             <BottomGradient />
           </button>
