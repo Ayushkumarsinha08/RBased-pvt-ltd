@@ -1,35 +1,38 @@
 "use client";
-import { Feature } from "@/components/ui/feature-section-with-grid"
-import Footer from "@/components/ui/Footer"
-import { Navbar } from "@/components/ui/NavBar"
+
+import { Feature } from "@/components/ui/feature-section-with-grid";
+import Footer from "@/components/ui/Footer";
+import { Navbar } from "@/components/ui/NavBar";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { Loading } from "./loading";
 
-
-export default function Services(){
+export default function Services() {
     const router = useRouter();
-    const [istoken, setistoken] = useState(false);
+    const [isTokenValid, setIsTokenValid] = useState(false);
+    const session = useSession();
+
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (!token) {
+        const user = session.data?.user ;
+        if (!token || !user) {
             router.push("/login"); // Redirect to login if token is not present
-        } else{
-            setistoken(true);
+        }
+        else{
+            setIsTokenValid(true);
         }
     }, []);
 
-    if (!istoken) {
-        return <p>Loading...</p>; // Fixed typo in loading message
+    if (!isTokenValid) {
+        return <Loading />; // Fixed typo in loading message
     }
 
-    return(
-        <div>
-             <div className="w-full">
-                <Navbar/>
-               <Feature />
-               <Footer/>
-
-    </div>
+    return (
+        <div className="w-full">
+            <Navbar />
+            <Feature />
+            <Footer />
         </div>
-    )
+    );
 }

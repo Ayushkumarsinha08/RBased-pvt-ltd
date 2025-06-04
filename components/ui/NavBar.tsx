@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import  Logo  from '@/components/ui/Logo'
-import { signIn ,signOut, useSession} from "next-auth/react";
+import { signOut, useSession} from "next-auth/react";
 
 const menuItems = [
     { name: 'Home', href: '/' },
@@ -61,7 +61,7 @@ export function Navbar() {
 
                 <div className="flex w-full flex-col space-y-8 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
                     
-                { token && <Button
+                { (token || session.data?.user) && <Button
                         asChild
                         variant="outline"
                         size="lg">
@@ -72,7 +72,7 @@ export function Navbar() {
                             <span>Logout</span>
                         </Link>
                     </Button>}
-                    { !token &&
+                    { !token && !session.data?.user &&
                     <Button
                         asChild
                         variant="outline"
@@ -81,14 +81,14 @@ export function Navbar() {
                             <span>Login</span>
                         </Link>
                     </Button>}
-                    <Button
+                 { (!token && !session.data?.user) && <Button
                         asChild
                         variant="outline"
                         size="lg">
                         <Link href="./signup">
                             <span>Signup</span>
                         </Link>
-                    </Button>
+                    </Button>}
                   </div> 
                 </div>
             </div>

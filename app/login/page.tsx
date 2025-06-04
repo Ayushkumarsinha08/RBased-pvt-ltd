@@ -54,14 +54,14 @@ export default function Login() {
     <div> 
     <div className="min-h-screen relative overflow-hidden">
       {/* Half-circle gradient background element */}
-      <div className="absolute w-[110%] h-[100%] -top-1/2 -left-1/2 rounded-full bg-gradient-to-br from-blue-950 to-black opacity-70" />
+      <div className="absolute w-[110%] h-[100%] -top-1/2 -left-1/2 rounded-full bg-gradient-to-br from-blue-950 to-black opacity-70 " />
       
       {/* Second overlapping half-circle for more depth */}
       <div className="absolute w-[100%] h-[100%] -bottom-1/2 -right-1/2 rounded-full bg-gradient-to-tl from-gray-100 to-black opacity-60" />
 
       <Navbar/>
-      <div className="h-screen flex justify-center items-center relative z-10">
-        <div className="bg-gradient-to-b from-gray-950 h-180 w-150 rounded-2xl flex justify-center items-center overflow-hidden shadow-lg transition-transform hover:scale-105 border-2 border-white/20 backdrop-blur-sm bg-opacity-80">
+      <div className="h-screen flex justify-center items-center pt-5 relative z-10">
+        <div className="bg-gradient-to-b from-gray-950 h-180 w-150 rounded-2xl flex justify-center items-center  border-2 border-white/20 backdrop-blur-sm bg-opacity-80">
           <div className="grid gap-30">
             <p className="text-4xl font-bold text-white flex justify-center items-center pt-30">
               Login to your Account
