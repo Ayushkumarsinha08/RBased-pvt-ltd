@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 type VideoCardProps = {
   title: string;
@@ -99,9 +100,10 @@ export default function Hero() {
             <p className="text-gray-300">Premium content carefully selected for our audience.</p>
           </div>
           <div className="bg-muted p-6 rounded-lg">
-            <div className="text-purple-400 text-3xl mb-3">🚀</div>
-            <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-            <p className="text-gray-300">Quick access to all videos with optimized streaming.</p>
+            <div className="text-blue-500 text-3xl mb-3 hover:underline"><Link href="/workshops/events">Event Booking</Link>
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Book your Events here</h3>
+            <p className="text-gray-300">To quickly Book your events, please visit our events page for more details.</p>
           </div>
           <div className="bg-muted p-6 rounded-lg">
             <div className="text-green-400 text-3xl mb-3">🛠️</div>

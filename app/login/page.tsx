@@ -54,30 +54,32 @@ export default function Login() {
     <div> 
     <div className="min-h-screen relative overflow-hidden">
       {/* Half-circle gradient background element */}
-      <div className="absolute w-[100%] h-[100%] -left-1/2 rounded-full bg-gradient-to-br from-blue-900 to-black opacity-70">
-      </div>
-      <div className="absolute z-10 text-white text-5xl font-bold left-60 top-120 ">
-        <p>HELLO, WELCOME !</p>
-        <p className="text-lg text-white text-center pt-10 pb-4">
+      <div className="absolute w-[100%] h-[100%] -left-1/2 rounded-full border-amber-100 bg-gradient-to-br from-blue-900 to-black opacity-70" />
+      <div className="absolute z-10 left-60 top-140 text-center">
+        <p className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-white animate-gradient-x">
+          HELLO, WELCOME!
+        </p>
+        <p className="text-lg text-white/90 pt-8 pb-4 animate-fade-in-down">
           Do not have an account?
         </p>
-         <button
-                type="button"
-                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-15 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-                onClick={() => router.push("/signup")}
-              >
-
-                <span className="text-neutral-700 font-bold dark:text-neutral-300 text-2xl">Register</span>
-                <BottomGradient />
-              </button>
+        <button
+          type="button"
+          className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-15 font-medium shadow-input bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 hover:cursor-pointer transition-all duration-300 hover:shadow-lg"
+          onClick={() => router.push("/signup")}
+        >
+          <span className="text-lg font-bold bg-clip-text text-gray-100 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 dark:from-indigo-300 dark:via-purple-400 dark:to-cyan-300">
+        Register
+          </span>
+          <BottomGradient />
+        </button>
       </div>
       
      
 
       <Navbar/>
       <div className="h-screen flex justify-center items-center pl-30 ml-200 pt-5 relative z-10">
-        <div className="bg-gradient-to-b from-gray-950 h-180 w-150 rounded-2xl flex justify-center items-center  border-2 border-white/20 backdrop-blur-sm bg-opacity-80">
-          <div className="grid gap-30">
+        <div className="bg-gradient-to-b from-gray-950 h-180 w-150 rounded-2xl flex justify-center items-center border-2 border-white/20 backdrop-blur-sm bg-opacity-80">
+          <div className="grid gap-20">
             <p className="text-4xl font-bold text-white flex justify-center items-center pt-30">
               Login to your Account
             </p>
@@ -91,7 +93,7 @@ export default function Login() {
               )}
               <input
                 type="email"
-                className="bg-muted w-full h-13 rounded-xl border-2 text-white focus:outline-none focus:ring-2 focus:ring-gray-900 placeholder:text-center px-4 py-4"
+                className="bg-muted w-full h-13 rounded-xl border-2 text-white font-bold text-xl focus:outline-none focus:ring-2 focus:ring-gray-900 placeholder:text-center px-4 py-4"
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -99,7 +101,7 @@ export default function Login() {
               />
               <input
                 type="password"
-                className="bg-muted w-full h-13 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-900 text-white placeholder:text-center px-4 py-4"
+                className="bg-muted w-full h-13 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-900 text-white font-bold text-xl placeholder:text-center px-4 py-4"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -117,7 +119,7 @@ export default function Login() {
                 className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
                 disabled={loading} 
               > 
-                 <span className=" text-neutral-700 dark:text-neutral-300 text-lg">
+                 <span className=" text-neutral-700 dark:text-neutral-300 text-xl">
               
                 {loading ? "Loading..." : "Login"}
             </span>
@@ -160,9 +162,9 @@ export default function Login() {
         </div>
       </div>
     
-    </div>
-    <Footer />
-    </div>
+      </div>
+      <Footer />
+      </div>
   );
 }
 

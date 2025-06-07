@@ -77,17 +77,45 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Reach Out (Google Form) */}
-          <div className="flex flex-col space-y-4">
-            <h3 className="font-bold text-2xl">Reach Out</h3>
-            <p className="w-100 text-sm mb-2">Have questions? Fill out our quick contact form, and we will get back to you shortly.</p>
-            <div className="w-100 h-48 bg-gray-800 rounded overflow-hidden">
-              <iframe 
-                src={process.env.GOOGLE_FORM_URL}
-                className="w-100 h-48 border-0" 
-                title="Contact Form"
-              >Loading form...</iframe>
+            <div className="flex flex-col space-y-4">
+            <h3 className="font-bold text-2xl">Subscribe Newsletter</h3>
+            <p className="text-sm mb-2">Stay updated with our latest news, services and offers.</p>
+            <form className="flex flex-col space-y-3">
+              <div>
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="w-70 px-4 py-2 bg-muted border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-slate-950"
+                required
+              />
+              </div>
+               <button
+                type="button"
+                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-40 text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+                
+              >
+
+             <span className=" text-neutral-700 dark:text-neutral-300 text-lg">  
+
+                Subscribe
+              </span>
+
+              <BottomGradient />
+              </button>
+            </form>
+              <div className="flex items-center space-x-2 mb-4">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  className="h-5 w-5 rounded border-gray-700 hover:cursor-pointer focus:ring-2 focus:ring-gray-900 text-blue-400"
+                  required
+                />
+                <label htmlFor="consent" className="text-gray-300 text-sm mr-7">
+                  Yes, I would like to receive communications by call / email about RBased services.
+                </label>
+              </div>
+            
             </div>
-          </div>
         </div>
         
         <div className="mt-8 pt-6 border-t border-gray-10 bg-black text-center text-sm">
@@ -97,3 +125,13 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    </>
+  );
+};

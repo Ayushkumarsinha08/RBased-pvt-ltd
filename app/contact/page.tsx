@@ -52,6 +52,18 @@ export default function Contact() {
               </div>
               
               <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  className="h-4 w-4 rounded border-gray-700 focus:ring-2 focus:ring-gray-900 text-blue-400"
+                  required
+                />
+                <label htmlFor="consent" className="text-gray-300 text-sm">
+                  Yes, I would like to receive communications by call / email about RBased services.
+                </label>
+              </div>
+
                 <button 
                   type="submit" 
                   className="w-full px-6 py-3 bg-muted hover:bg-muted-dark hover:cursor-pointer text-white font-medium rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1"

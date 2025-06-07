@@ -1,15 +1,18 @@
 import { Navbar } from "@/components/ui/NavBar"
-
+import  EventRegistration  from "../../components/ui/Event-registration";
+import  Footer  from "@/components/ui/Footer";
 export default function ProjectsPage() {
   return (
-    <div>
+    <div className="bg-black">
         <Navbar />
-        <div className="flex items-center justify-center h-64 bg-gray-100 dark:bg-gray-800">
-      <div className="pt-10">
-        <h1 className="text-3xl font-bold text-center">Projects</h1>
-        <p className="text-center mt-4">Coming soon...</p>
+        <div className="flex items-center justify-center pt-30">
+      <div className="h-screen w-full pt-10">
+       <EventRegistration />
       </div>
+  
     </div>
+
+    <Footer/>
   </div>
   );
 }
