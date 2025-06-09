@@ -16,7 +16,7 @@ export default function Services() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         const user = session.data?.user ;
-        if (!token || !user) {
+        if (!token || (!user)) {
             router.push("/login"); // Redirect to login if token is not present
         }
         else{

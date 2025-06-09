@@ -1,5 +1,24 @@
+"use client";
 import Image from 'next/image';
-import MapComponent from "@/components/ui/MapContainer";
+import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css';
+
+// Import Map with no SSR
+const MapWithNoSSR = dynamic(
+  () => import('./Map'),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="h-48 w-full flex items-center justify-center bg-gray-800">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+          <p className="mt-2 text-sm text-gray-300">Loading map...</p>
+        </div>
+      </div>
+    )
+  }
+);
+
 export default function Footer() {
   return (
     <footer className="bg-black border-t border-gray-10 text-white w-full py-10">
@@ -71,8 +90,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-4">
             <h3 className="flex items-center font-bold text-2xl">Visit Us</h3>
             <div className="w-90 h-48 bg-gray-800 rounded overflow-hidden">
-              <MapComponent />
-              
+              <MapWithNoSSR />
             </div>
           </div>
 

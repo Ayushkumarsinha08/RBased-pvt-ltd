@@ -17,7 +17,11 @@ const menuItems = [
 export function Navbar() {
   const [menuState, setMenuState] = React.useState(false);   
   const session = useSession();
-  const token = localStorage.getItem("token");  
+  const [token, setToken] = React.useState<string | null>(null);
+  
+  React.useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
   return (
     <nav
     data-state={menuState && 'active'}
