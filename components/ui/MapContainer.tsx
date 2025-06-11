@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
+import { Map } from 'leaflet';
 
 export default function MapComponent() {
-  const mapRef = useRef(null);
-  const mapInstanceRef = useRef(null);
+  const mapInstanceRef = useRef<Map | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -19,7 +19,7 @@ export default function MapComponent() {
         // Check if the map element exists and hasn't been initialized
         const mapElement = document.getElementById('map');
         
-        if (mapElement && !mapElement._leaflet_id) {
+        if (mapElement && !mapInstanceRef.current) {
           // Create the map
           const map = L.map('map').setView([28.7041, 77.1025], 13);
           
