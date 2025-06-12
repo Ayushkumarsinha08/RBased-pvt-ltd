@@ -1,13 +1,6 @@
-import Footer from "@/components/ui/Footer";
-import { Navbar } from "@/components/ui/NavBar";
-export default function Contact() {
+export default function ContactCard() {
   return (
-    <div className="flex flex-col min-h-screen bg-black text-gray-100">
-      {/* Navigation */}
-      <Navbar />
-
-      {/* Main content */}
-      <div className="container h-screen pt-30 mx-auto py-12 px-4 flex-grow">
+    <div className="container h-screen pt-50 mx-auto py-12 px-4 flex-grow">
         <h1 className="text-4xl font-bold text-center mb-12">GET IN TOUCH</h1>
 
         {/* Contact form and company info section */}
@@ -120,8 +113,5 @@ export default function Contact() {
           </div>
         </div> 
 </div>
-      <Footer />
-    </div>
   );
 }
-

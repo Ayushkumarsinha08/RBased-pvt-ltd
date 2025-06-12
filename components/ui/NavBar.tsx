@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <nav
     data-state={menuState && 'active'}
-    className="group fixed top-0 z-50 w-full border-b border-dashed bg-white backdrop-blur dark:bg-zinc-950/50 lg:dark:bg-black">
+    className="group fixed top-0 z-50 w-full h-18 border-b border-dashed bg-white backdrop-blur dark:bg-zinc-950/50 lg:dark:bg-black">
     <div className="m-auto max-w-8xl px-6">
         <div className="flex flex-wrap items-center justify-between gap-10 py-5 lg:gap-0 lg:py-4">
             <div className="flex w-auto justify-start ">
@@ -34,7 +34,7 @@ export function Navbar() {
                     aria-label="home"
                     className="flex items-center w-full space-x-2">
                     <Logo/>
-                    <span className="hidden text-3xl font-bold text-gray-100 lg:block">
+                    <span className="hidden text-xl font-bold text-gray-100 lg:block">
                         RBased Services Pvt. Ltd.
                     </span>
                 </Link>
@@ -80,7 +80,7 @@ export function Navbar() {
                     <Button
                         asChild
                         variant="outline"
-                        size="lg">
+                        size="sm">
                         <Link href="/login">
                             <span>Login</span>
                         </Link>
@@ -88,7 +88,7 @@ export function Navbar() {
                  { (!token && !session.data?.user) && <Button
                         asChild
                         variant="outline"
-                        size="lg">
+                        size="sm">
                         <Link href="./signup">
                             <span>Signup</span>
                         </Link>

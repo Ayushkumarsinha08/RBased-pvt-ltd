@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "NEXT_DISABLE_ESLINT=true next build",
-   "prisma": "prisma init && prisma generate",
+    "build": "NEXT_DISABLE_ESLINT=true prisma generate && next build",
     "migrate": "prisma migrate dev --name init",
     "start": "next start",
     "lint": "next lint"

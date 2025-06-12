@@ -39,10 +39,10 @@ export default function Content() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4 pt-2">
       
       {/* Carousel */}
-      <div className=" w-full h-[90vh] pt-12 max-w-full mb-16">
+      <div className=" w-full h-[90vh] pt-2 max-w-full mb-16">
         <div className="overflow-hidden rounded-lg shadow-2xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out" 

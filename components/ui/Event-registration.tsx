@@ -183,19 +183,19 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
         >
           <div className="flex items-center space-x-3">
             <RadioGroupItem value="none" id="none" className="border-gray-500 text-blue-500 h-6 w-6" />
-            <Label htmlFor="none" className="text-xl text-gray-200">None</Label>
+            <Label htmlFor="none" className="text-xl text-gray-200">0-50</Label>
           </div>
           <div className="flex items-center space-x-3">
             <RadioGroupItem value="vegetarian" id="vegetarian" className="border-gray-500 text-blue-500 h-6 w-6" />
-            <Label htmlFor="vegetarian" className="text-xl text-gray-200">Vegetarian</Label>
+            <Label htmlFor="vegetarian" className="text-xl text-gray-200">50-100</Label>
           </div>
           <div className="flex items-center space-x-3">
             <RadioGroupItem value="vegan" id="vegan" className="border-gray-500 text-blue-500 h-6 w-6" />
-            <Label htmlFor="vegan" className="text-xl text-gray-200">Vegan</Label>
+            <Label htmlFor="vegan" className="text-xl text-gray-200">100-150</Label>
           </div>
           <div className="flex items-center space-x-3">
             <RadioGroupItem value="glutenFree" id="glutenFree" className="border-gray-500 text-blue-500 h-6 w-6" />
-            <Label htmlFor="glutenFree" className="text-xl text-gray-200">Gluten Free</Label>
+            <Label htmlFor="glutenFree" className="text-xl text-gray-200">200+</Label>
           </div>
         </RadioGroup>
       </div>
@@ -206,7 +206,7 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
           onCheckedChange={(checked) => handleCheckboxChange('accommodationNeeded', checked)}
           className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-6 w-6"
         />
-        <Label htmlFor="accommodationNeeded" className="text-xl text-gray-200">I need accommodation</Label>
+        <Label htmlFor="accommodationNeeded" className="text-xl text-gray-200">Will you provide accommodation</Label>
       </div>
       <div className="flex items-center space-x-3 py-2">
         <Checkbox 
@@ -215,7 +215,7 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
           onCheckedChange={(checked) => handleCheckboxChange('transportationNeeded', checked)}
           className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-6 w-6"
         />
-        <Label htmlFor="transportationNeeded" className="text-xl text-gray-200">I need transportation</Label>
+        <Label htmlFor="transportationNeeded" className="text-xl text-gray-200">Will you provide transportation</Label>
       </div>
       <div className="space-y-3 text-gray-200">
         <Label className='text-xl font-bold' htmlFor="specialRequests">Special Requests :</Label>

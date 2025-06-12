@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ContactCard from "./Contact-card";
+import EventRegistration from "./Event-registration";
 
 type VideoCardProps = {
   title: string;
@@ -67,8 +69,8 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-black py-16 px-4 text-white">
       {/* Hero Header */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-600">
+      <div className="max-w-4xl mx-auto text-center mb-10">
+        <h1 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-600">
           Discover Amazing Content
         </h1>
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -90,14 +92,26 @@ export default function Hero() {
         ))}
       </div>
       
+      {/* Additional Content Section */}
+      <div>
+        <h2 className="text-3xl font-bold text-center mt-16 mb-8">Join Our Upcoming Events</h2>
+        <p className="text-center text-gray-300 mb-10">
+          Stay updated with our latest workshops and events. Register now to secure your spot!
+        </p>
+      </div>
+      <EventRegistration />
+
+      {/* Call to Action Section */}
+      <ContactCard />
+      
       {/* Additional Section */}
       <div className="max-w-8xl mx-auto mt-20 text-center">
         <h2 className="text-3xl font-bold mb-6">Why Choose Our Platform?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-muted p-6 rounded-lg">
-            <div className="text-blue-400 text-3xl mb-3">✨</div>
-            <h3 className="text-xl font-semibold mb-2">High Quality</h3>
-            <p className="text-gray-300">Premium content carefully selected for our audience.</p>
+            <div className="text-blue-400 text-3xl mb-3 hover:underline"><Link href="/contact">Contact Us</Link></div>
+            <h3 className="text-xl font-semibold mb-2">Get in Touch</h3>
+            <p className="text-gray-300">Contact Us for more information.</p>
           </div>
           <div className="bg-muted p-6 rounded-lg">
             <div className="text-blue-500 text-3xl mb-3 hover:underline"><Link href="/workshops/events">Event Booking</Link>
@@ -106,12 +120,13 @@ export default function Hero() {
             <p className="text-gray-300">To quickly Book your events, please visit our events page for more details.</p>
           </div>
           <div className="bg-muted p-6 rounded-lg">
-            <div className="text-green-400 text-3xl mb-3">🛠️</div>
-            <h3 className="text-xl font-semibold mb-2">Customizable</h3>
-            <p className="text-gray-300">Adapt our solutions to fit your specific needs.</p>
+            <Link href="https://www.youtube.com/@RBasedServicesPvtLtd" target="_blank" rel="noopener noreferrer" className="text-blue-500 text-3xl mb-3 hover:underline">YouTube Channel</Link>
+            <h3 className="text-xl font-semibold mb-2">Know More</h3>
+            <p className="text-gray-300">To Know More Visit YouTube channel </p>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 }
