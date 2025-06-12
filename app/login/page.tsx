@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import {  useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/ui/NavBar";
 import Footer from "@/components/ui/Footer";
-import { signIn } from "next-auth/react";
+import { signIn,useSession } from "next-auth/react";
 import { IconBrandGoogle } from "@tabler/icons-react";
 
 
@@ -14,12 +14,14 @@ export default function Login() {
     const [password, setPassword] = useState<{ password: string; showPassword: boolean }>({ password: "", showPassword: false });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const session = useSession();
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setLoading(true);
       setError("");
-  
+      // Perform login request
+      
       try {
         const response = await fetch("http://localhost:3000/api/auth/login", { 
           method: "POST",
@@ -38,10 +40,10 @@ export default function Login() {
         // Login successful
         console.log("Login successful", data);
         // Store user info or token in localStorage/cookies if needed
-        if (data.token) {
+        if (data.token || session.data?.user) {
           localStorage.setItem("token", data.token);
         }
-        router.push("/services"); // Redirect to home page or dashboard
+        router.push("/"); // Redirect to home page or dashboard
       } catch (err: unknown) {
         console.error("Login error:", err);
         setError(err instanceof Error ? err.message : "Invalid email or password. Please try again.");
@@ -54,11 +56,13 @@ export default function Login() {
     <div> 
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Half-circle gradient background element */}
+
       <div className="absolute w-[100%] h-[100%] -left-1/2 rounded-full bg-gradient-to-br from-blue-900 to-black opacity-70" />
       <div className="absolute z-10 left-50 top-100 text-center">
         <p className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-white animate-gradient-x">
           HELLO, WELCOME!
         </p>
+
         <p className="text-lg text-white/90 pt-6 pb-4 animate-fade-in-down">
           Do not have an account?
         </p>
@@ -148,7 +152,7 @@ export default function Login() {
               <button
                 type="button"
                 className="relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-                onClick={() => signIn(" ")}
+                onClick={() => signIn()}
               >
 
                 <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
