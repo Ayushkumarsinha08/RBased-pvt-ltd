@@ -7,7 +7,7 @@ import { RadioGroup, RadioGroupItem } from './radio-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from './checkbox';
 import { Calendar } from "@/components/ui/calendar"; // Add this import
-import { format } from "date-fns"; // Add this import
+import { format,set } from "date-fns"; // Add this import
 import { CalendarIcon } from "lucide-react"; // Add this import
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"; // Add these imports
 
@@ -76,14 +76,14 @@ const data = await res.json();
         email: '',
         phoneNumber: '',
         eventType: 'CONFERENCE',
-        date: undefined,
+        date: set(new Date(), { year: 2025, month: 0, date: 1 }), // Default to Jan 1, 2025
         dietaryRequirements: '',
         accommodationNeeded: false,
         transportationNeeded: false,
         specialRequests: ''
       });
       setCurrentStep(1);
-    }else {
+    } else {
       setStatus(`Error: ${data.error || 'Something went wrong'}`);
     }
     setStatus(''); // Reset status after submission 

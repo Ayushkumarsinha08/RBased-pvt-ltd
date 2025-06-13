@@ -1,19 +1,26 @@
 import { NextResponse } from 'next/server';
-import  prisma  from '../../../lib/prisma';
+import prisma from '../../../lib/prisma';
 
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { firstName, lastName, email, phoneNumber, date, eventType } = body;
+    const { firstName, lastName, email, phoneNumber, date, eventType, dietaryRequirements, accommodationNeeded, transportationNeeded, specialRequests } = body;
 
-    if (!firstName || !lastName || !email || !phoneNumber || !date || !eventType) {
+    // Check if all required fields are provided
+    if (!firstName || !lastName || !email || !phoneNumber || !date || !eventType || !dietaryRequirements || !accommodationNeeded || !transportationNeeded || !specialRequests) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    const validEventTypes = ['CONFERENCE', 'WORKSHOP', 'SEMINAR', 'NETWORK'];
+        const validEventTypes = ['CONFERENCE', 'WORKSHOP', 'SEMINAR', 'NETWORKING_EVENT'];
     if (!validEventTypes.includes(eventType.toUpperCase())) {
       return NextResponse.json({ error: 'Invalid event type' }, { status: 400 });
+    }
+
+    // Validate date is in the future
+    const eventDate = new Date(date);
+    if (isNaN(eventDate.getTime()) || eventDate < new Date()) {
+      return NextResponse.json({ error: 'Invalid or past date' }, { status: 400 });
     }
 
     const registration = await prisma.eventRegistration.create({
@@ -22,12 +29,12 @@ export async function POST(req: Request) {
         lastName,
         email,
         phoneNumber,
-        date: new Date(date),
+        date: eventDate,
         eventType: eventType.toUpperCase(),
-        dietaryRequirements: body.dietaryRequirements,
-        accommodationNeeded: body.accommodationNeeded,
-        transportationNeeded: body.transportationNeeded,
-        specialRequests: body.specialRequests,
+        dietaryRequirements,
+        accommodationNeeded,
+        transportationNeeded,
+        specialRequests,
       }
     });
 
