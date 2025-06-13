@@ -106,6 +106,7 @@ export default function ContactCard() {
                 </label>
               </div>
               {status && <p className="text-sm mt-2">{status}</p>}
+              <br />
                 <button 
                   type="submit" 
                   className="w-full px-6 py-3 bg-muted hover:bg-muted-dark hover:cursor-pointer text-white font-medium rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1"

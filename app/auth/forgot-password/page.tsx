@@ -1,10 +1,12 @@
+import { Navbar } from "@/components/ui/NavBar";
+
 export default function ForgetPassword() {
     return (
         <div>
-        
+        <Navbar />
             <div className="flex flex-col items-center justify-center h-screen w-full bg-black">
                 <div className="bg-gradient-to-b from-gray-950 shadow-md rounded-lg p-8 h-[50vh] w-full max-w-lg mx-auto">
-                    <h2 className="text-2xl font-bold text-white pt-8 text-center mb-6">Reset Password</h2>
+                    <h2 className="text-2xl font-bold text-white pt-8 text-center mb-6">Get Password</h2>
                     <form className="space-y-4">
                         <div>
                             <label htmlFor="email" className="block text-xl font-medium pt-8 pb-2 text-gray-100">Email Address</label>
@@ -24,7 +26,7 @@ export default function ForgetPassword() {
                             
              <span className=" text-neutral-700 dark:text-neutral-300 text-lg">  
 
-Send Reset Link
+Send Password
 </span>
 
 <BottomGradient />
