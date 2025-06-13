@@ -97,7 +97,7 @@ export default function Home (){
 
 
             </div>
-            <div className="bg-black">
+            <div className="pb-20 bg-black">
                 <ContactCard/>
             </div>
         
