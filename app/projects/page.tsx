@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui/NavBar"
 import  EventRegistration  from "../../components/ui/Event-registration";
 import  Footer  from "@/components/ui/Footer";
+import MultiStepForm from "@/components/ui/multi-step";
 export default function ProjectsPage() {
   return (
     <div className="bg-black">
@@ -9,6 +10,7 @@ export default function ProjectsPage() {
       <div className="h-screen w-full pt-10">
        <EventRegistration />
       </div>
+      <MultiStepForm />
   
     </div>
 
