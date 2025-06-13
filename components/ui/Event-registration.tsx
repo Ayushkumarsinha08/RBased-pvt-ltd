@@ -13,16 +13,17 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 
 export default function EventRegistration() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [status, setStatus] = useState('');
   const [formData, setFormData] = useState({
     // Step 1: Personal Details
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNumber: '',
 
     // Step 2: Event Selection
-    eventType: '',
-    eventDate: undefined as Date | undefined, // Changed from string to Date | undefined
+    eventType: 'CONFERENCE', // Default value
+    date: undefined as Date | undefined, // Changed from string to Date | undefined
 
     // Step 3: Preferences
     dietaryRequirements: '',
@@ -54,12 +55,38 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('Submitting...');
     // Submit form data to backend
     console.log('Form submitted:', formData);
     // Reset form or show success message
     alert('Registration successful!');
+    const res = await fetch('/api/event-registration', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+const data = await res.json();
+    if (res.ok) {
+      setStatus('Registration successful!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        eventType: 'CONFERENCE',
+        date: undefined,
+        dietaryRequirements: '',
+        accommodationNeeded: false,
+        transportationNeeded: false,
+        specialRequests: ''
+      });
+      setCurrentStep(1);
+    }else {
+      setStatus(`Error: ${data.error || 'Something went wrong'}`);
+    }
+    setStatus(''); // Reset status after submission 
   };
 
   // Step 1: Personal Details
@@ -109,11 +136,11 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
         <Label className='text-xl pb-3 mb-3 font-bold' htmlFor="phone">Phone Number</Label>
         <Input 
           id="phone" 
-          name="phone"
+          name="phoneNumber"
           type="tel" 
           placeholder='Phone Number'
-          className="bg-gray-800/60 border-gray-700 text-xl text-gray-100 focus:border-gray-950 focus:ring-slate-500 h-14 "
-          value={formData.phone} 
+          className="bg-gray-800/60 border-gray-700 text-xl text-slate-100 focus:border-gray-950 focus:ring-slate-500 h-14 "
+          value={formData.phoneNumber} 
           onChange={handleInputChange}
           required
         />
@@ -135,10 +162,10 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
             <SelectValue placeholder="Select an event" />
           </SelectTrigger>
           <SelectContent className="bg-gray-800 text-xl text-gray-100 border-gray-700">
-            <SelectItem value="conference">Conference</SelectItem>
-            <SelectItem value="workshop">Workshop</SelectItem>
-            <SelectItem value="seminar">Seminar</SelectItem>
-            <SelectItem value="networking">Networking Event</SelectItem>
+            <SelectItem value="CONFERENCE">Conference</SelectItem>
+            <SelectItem value="WORKSHOP">Workshop</SelectItem>
+            <SelectItem value="SEMINAR">Seminar</SelectItem>
+            <SelectItem value="NETWORKING_EVENT">Networking Event</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -152,14 +179,14 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
               className="w-full justify-start text-left font-normal bg-gray-800/60 border-gray-700 text-xl text-gray-100 h-14"
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
-              {formData.eventDate ? format(formData.eventDate, "PPP") : <span className="text-gray-400">Select a date</span>}
+              {formData.date ? format(formData.date, "PPP") : <span className="text-gray-400">Select a date</span>}
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0 bg-gray-800 border-gray-700">
             <Calendar
               mode="single"
-              selected={formData.eventDate}
-              onSelect={(date) => setFormData({...formData, eventDate: date})}
+              selected={formData.date}
+              onSelect={(date) => setFormData({...formData, date})}
               initialFocus
               disabled={(date) => date < new Date() || date > new Date('2025-12-31')}
               className="bg-gray-800 text-gray-100"
@@ -182,19 +209,19 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
           className="space-y-3"
         >
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="none" id="none" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="0-50" id="none" className="border-gray-500 text-blue-500 h-6 w-6" />
             <Label htmlFor="none" className="text-xl text-gray-200">0-50</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="vegetarian" id="vegetarian" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="50-100" id="vegetarian" className="border-gray-500 text-blue-500 h-6 w-6" />
             <Label htmlFor="vegetarian" className="text-xl text-gray-200">50-100</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="vegan" id="vegan" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="100-150" id="vegan" className="border-gray-500 text-blue-500 h-6 w-6" />
             <Label htmlFor="vegan" className="text-xl text-gray-200">100-150</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="glutenFree" id="glutenFree" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="200+" id="glutenFree" className="border-gray-500 text-blue-500 h-6 w-6" />
             <Label htmlFor="glutenFree" className="text-xl text-gray-200">200+</Label>
           </div>
         </RadioGroup>
@@ -232,8 +259,9 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
 
   return (
     <div className="max-w-4xl h-90vh mx-auto p-8 bg-gradient-to-br from-gray-950  rounded-xl shadow-2xl border border-gray-700">
+
+      {status && <p className="text-sm text-red-600 mt-2">{status}</p>} 
       <h1 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gray-100">Event Registration</h1>
-      
       {/* Progress indicator */}
       <div className="flex justify-between mb-8">
         {[1, 2, 3].map((step) => (
@@ -273,7 +301,9 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
               Back
             </Button>
           )}
-          {currentStep < 3 ? (
+
+          {/* Replaced nested ternary with clearer conditional rendering */}
+          {currentStep === 1 && (
             <Button 
               type="button" 
               className="ml-auto bg-gradient-to-r from-black to-gray-900 hover:from-gray-950 hover:cursor-pointer text-white border-0"
@@ -281,12 +311,22 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
             >
               Continue
             </Button>
-          ) : (
+          )}
+          {currentStep === 2 && (
+            <Button 
+              type="button" 
+              className="ml-auto bg-gradient-to-r from-purple-700 to-indigo-900 hover:from-blue-800 hover:cursor-pointer text-white border-0"
+              onClick={nextStep}
+            >
+              Next Step
+            </Button>
+          )}
+          {currentStep === 3 && (
             <Button 
               type="submit" 
-              className="ml-auto bg-gradient-to-r from-gray-950 to-gray-900 hover:from-slate-900 hover:cursor-pointer text-white border-0"
+              className="ml-auto bg-gradient-to-r from-purple-700 to-indigo-900 hover:from-purple-800 hover:cursor-pointer text-white border-0"
             >
-              Submit Registration
+              {status === 'Sending...' ? 'Sending...' : 'Submit Registration'}
             </Button>
           )}
         </div>

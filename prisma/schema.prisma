@@ -37,3 +37,26 @@ model ContactMessage {
   userId       String
   user         User     @relation(fields: [userId], references: [id])
 }
+
+
+enum EventType {
+  CONFERENCE
+  WORKSHOP
+  SEMINAR
+  NETWORKING_EVENT
+}
+
+model EventRegistration {
+  id          String    @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String
+  phoneNumber String
+  date        DateTime
+  eventType   EventType
+  dietaryRequirements String?
+  accommodationNeeded Boolean?
+  transportationNeeded Boolean?
+  specialRequests String?
+  createdAt   DateTime  @default(now())
+}
