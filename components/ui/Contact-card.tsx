@@ -1,4 +1,41 @@
+"use client";
+import React, { useState } from 'react';
 export default function ContactCard() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    companyName: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+
+    if (res.ok) {
+      setStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', companyName: '', message: '' });
+    } else {
+      const error = await res.json();
+      setStatus(`Error: ${error.error}`);
+    }
+  };
+
   return (
     <div className="container h-screen pt-50 mx-auto py-12 px-4 flex-grow">
         <h1 className="text-4xl font-bold text-center mb-12">GET IN TOUCH</h1>
@@ -9,11 +46,14 @@ export default function ContactCard() {
           <div className="bg-gradient-to-b h-95 w-full from-gray-950 p-8 rounded-lg shadow-lg">
             <h2 className="text-3xl font-semibold mb-6">Send Us a Message</h2>
             
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input 
                   type="text" 
                   placeholder="Your Name" 
+                  value={formData.name}
+                  onChange={handleChange}
+                  name="name"
                   className="w-full px-4 py-3 bg-muted border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 text-white"
                   required
                 />
@@ -23,6 +63,9 @@ export default function ContactCard() {
                 <input 
                   type="email" 
                   placeholder="Email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  name="email"
                   className="w-full px-4 py-3 bg-muted border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 text-white"
                   required
                 />
@@ -32,6 +75,9 @@ export default function ContactCard() {
                 <input 
                   type="text" 
                   placeholder="Company Name" 
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  name="companyName"
                   className="w-full px-4 py-3 bg-muted border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 text-white"
                 />
               </div>
@@ -39,6 +85,9 @@ export default function ContactCard() {
               <div>
                 <textarea 
                   placeholder="Your Message" 
+                  value={formData.message}
+                  onChange={handleChange}
+                  name="message"
                   className="w-full  px-4 py-3 bg-muted border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 text-white h-42 resize-none"
                   required
                 ></textarea>
@@ -56,12 +105,12 @@ export default function ContactCard() {
                   Yes, I would like to receive communications by call / email about RBased services.
                 </label>
               </div>
-
+              {status && <p className="text-sm mt-2">{status}</p>}
                 <button 
                   type="submit" 
                   className="w-full px-6 py-3 bg-muted hover:bg-muted-dark hover:cursor-pointer text-white font-medium rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1"
                 >
-                  Send Message
+                  {status === 'Sending...' ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
             </form>

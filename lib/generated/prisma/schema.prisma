@@ -15,11 +15,24 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
+  id        String           @id @default(cuid())
   firstName String?
   lastName  String?
-  email     String   @unique
+  email     String           @unique
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  messages  ContactMessage[]
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  companyName String?
+  message     String
+  createdAt   DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 }
