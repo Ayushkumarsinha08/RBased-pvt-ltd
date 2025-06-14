@@ -26,7 +26,7 @@ export default function ForgetPassword() {
                             
              <span className=" text-neutral-700 dark:text-neutral-300 text-lg">  
 
-Send Password
+Send Password to Email
 </span>
 
 <BottomGradient />
