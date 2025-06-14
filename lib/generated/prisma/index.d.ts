@@ -1071,10 +1071,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     messages: number
+    eventRegistrations: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     messages?: boolean | UserCountOutputTypeCountMessagesArgs
+    eventRegistrations?: boolean | UserCountOutputTypeCountEventRegistrationsArgs
   }
 
   // Custom InputTypes
@@ -1093,6 +1095,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountMessagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ContactMessageWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountEventRegistrationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EventRegistrationWhereInput
   }
 
 
@@ -1281,6 +1290,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     messages?: boolean | User$messagesArgs<ExtArgs>
+    eventRegistrations?: boolean | User$eventRegistrationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1317,6 +1327,7 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     messages?: boolean | User$messagesArgs<ExtArgs>
+    eventRegistrations?: boolean | User$eventRegistrationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1326,6 +1337,7 @@ export namespace Prisma {
     name: "User"
     objects: {
       messages: Prisma.$ContactMessagePayload<ExtArgs>[]
+      eventRegistrations: Prisma.$EventRegistrationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1730,6 +1742,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     messages<T extends User$messagesArgs<ExtArgs> = {}>(args?: Subset<T, User$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ContactMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    eventRegistrations<T extends User$eventRegistrationsArgs<ExtArgs> = {}>(args?: Subset<T, User$eventRegistrationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EventRegistrationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2175,6 +2188,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ContactMessageScalarFieldEnum | ContactMessageScalarFieldEnum[]
+  }
+
+  /**
+   * User.eventRegistrations
+   */
+  export type User$eventRegistrationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EventRegistration
+     */
+    select?: EventRegistrationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EventRegistration
+     */
+    omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
+    where?: EventRegistrationWhereInput
+    orderBy?: EventRegistrationOrderByWithRelationInput | EventRegistrationOrderByWithRelationInput[]
+    cursor?: EventRegistrationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EventRegistrationScalarFieldEnum | EventRegistrationScalarFieldEnum[]
   }
 
   /**
@@ -3303,6 +3340,7 @@ export namespace Prisma {
     transportationNeeded: boolean | null
     specialRequests: string | null
     createdAt: Date | null
+    userId: string | null
   }
 
   export type EventRegistrationMaxAggregateOutputType = {
@@ -3318,6 +3356,7 @@ export namespace Prisma {
     transportationNeeded: boolean | null
     specialRequests: string | null
     createdAt: Date | null
+    userId: string | null
   }
 
   export type EventRegistrationCountAggregateOutputType = {
@@ -3333,6 +3372,7 @@ export namespace Prisma {
     transportationNeeded: number
     specialRequests: number
     createdAt: number
+    userId: number
     _all: number
   }
 
@@ -3350,6 +3390,7 @@ export namespace Prisma {
     transportationNeeded?: true
     specialRequests?: true
     createdAt?: true
+    userId?: true
   }
 
   export type EventRegistrationMaxAggregateInputType = {
@@ -3365,6 +3406,7 @@ export namespace Prisma {
     transportationNeeded?: true
     specialRequests?: true
     createdAt?: true
+    userId?: true
   }
 
   export type EventRegistrationCountAggregateInputType = {
@@ -3380,6 +3422,7 @@ export namespace Prisma {
     transportationNeeded?: true
     specialRequests?: true
     createdAt?: true
+    userId?: true
     _all?: true
   }
 
@@ -3468,6 +3511,7 @@ export namespace Prisma {
     transportationNeeded: boolean | null
     specialRequests: string | null
     createdAt: Date
+    userId: string
     _count: EventRegistrationCountAggregateOutputType | null
     _min: EventRegistrationMinAggregateOutputType | null
     _max: EventRegistrationMaxAggregateOutputType | null
@@ -3500,6 +3544,8 @@ export namespace Prisma {
     transportationNeeded?: boolean
     specialRequests?: boolean
     createdAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["eventRegistration"]>
 
   export type EventRegistrationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3515,6 +3561,8 @@ export namespace Prisma {
     transportationNeeded?: boolean
     specialRequests?: boolean
     createdAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["eventRegistration"]>
 
   export type EventRegistrationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3530,6 +3578,8 @@ export namespace Prisma {
     transportationNeeded?: boolean
     specialRequests?: boolean
     createdAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["eventRegistration"]>
 
   export type EventRegistrationSelectScalar = {
@@ -3545,13 +3595,25 @@ export namespace Prisma {
     transportationNeeded?: boolean
     specialRequests?: boolean
     createdAt?: boolean
+    userId?: boolean
   }
 
-  export type EventRegistrationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phoneNumber" | "date" | "eventType" | "dietaryRequirements" | "accommodationNeeded" | "transportationNeeded" | "specialRequests" | "createdAt", ExtArgs["result"]["eventRegistration"]>
+  export type EventRegistrationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phoneNumber" | "date" | "eventType" | "dietaryRequirements" | "accommodationNeeded" | "transportationNeeded" | "specialRequests" | "createdAt" | "userId", ExtArgs["result"]["eventRegistration"]>
+  export type EventRegistrationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type EventRegistrationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type EventRegistrationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
 
   export type $EventRegistrationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "EventRegistration"
-    objects: {}
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       firstName: string
@@ -3565,6 +3627,7 @@ export namespace Prisma {
       transportationNeeded: boolean | null
       specialRequests: string | null
       createdAt: Date
+      userId: string
     }, ExtArgs["result"]["eventRegistration"]>
     composites: {}
   }
@@ -3959,6 +4022,7 @@ export namespace Prisma {
    */
   export interface Prisma__EventRegistrationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4000,6 +4064,7 @@ export namespace Prisma {
     readonly transportationNeeded: FieldRef<"EventRegistration", 'Boolean'>
     readonly specialRequests: FieldRef<"EventRegistration", 'String'>
     readonly createdAt: FieldRef<"EventRegistration", 'DateTime'>
+    readonly userId: FieldRef<"EventRegistration", 'String'>
   }
     
 
@@ -4016,6 +4081,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
     /**
      * Filter, which EventRegistration to fetch.
      */
@@ -4035,6 +4104,10 @@ export namespace Prisma {
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
+    /**
      * Filter, which EventRegistration to fetch.
      */
     where: EventRegistrationWhereUniqueInput
@@ -4052,6 +4125,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
     /**
      * Filter, which EventRegistration to fetch.
      */
@@ -4101,6 +4178,10 @@ export namespace Prisma {
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
+    /**
      * Filter, which EventRegistration to fetch.
      */
     where?: EventRegistrationWhereInput
@@ -4149,6 +4230,10 @@ export namespace Prisma {
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
+    /**
      * Filter, which EventRegistrations to fetch.
      */
     where?: EventRegistrationWhereInput
@@ -4192,6 +4277,10 @@ export namespace Prisma {
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
+    /**
      * The data needed to create a EventRegistration.
      */
     data: XOR<EventRegistrationCreateInput, EventRegistrationUncheckedCreateInput>
@@ -4225,6 +4314,10 @@ export namespace Prisma {
      */
     data: EventRegistrationCreateManyInput | EventRegistrationCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4239,6 +4332,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
     /**
      * The data needed to update a EventRegistration.
      */
@@ -4291,6 +4388,10 @@ export namespace Prisma {
      * Limit how many EventRegistrations to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4305,6 +4406,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
     /**
      * The filter to search for the EventRegistration to update in case it exists.
      */
@@ -4331,6 +4436,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
     /**
      * Filter which EventRegistration to delete.
      */
@@ -4363,6 +4472,10 @@ export namespace Prisma {
      * Omit specific fields from the EventRegistration
      */
     omit?: EventRegistrationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EventRegistrationInclude<ExtArgs> | null
   }
 
 
@@ -4418,7 +4531,8 @@ export namespace Prisma {
     accommodationNeeded: 'accommodationNeeded',
     transportationNeeded: 'transportationNeeded',
     specialRequests: 'specialRequests',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    userId: 'userId'
   };
 
   export type EventRegistrationScalarFieldEnum = (typeof EventRegistrationScalarFieldEnum)[keyof typeof EventRegistrationScalarFieldEnum]
@@ -4531,6 +4645,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     messages?: ContactMessageListRelationFilter
+    eventRegistrations?: EventRegistrationListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4542,6 +4657,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     messages?: ContactMessageOrderByRelationAggregateInput
+    eventRegistrations?: EventRegistrationOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4556,6 +4672,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     messages?: ContactMessageListRelationFilter
+    eventRegistrations?: EventRegistrationListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -4665,6 +4782,8 @@ export namespace Prisma {
     transportationNeeded?: BoolNullableFilter<"EventRegistration"> | boolean | null
     specialRequests?: StringNullableFilter<"EventRegistration"> | string | null
     createdAt?: DateTimeFilter<"EventRegistration"> | Date | string
+    userId?: StringFilter<"EventRegistration"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type EventRegistrationOrderByWithRelationInput = {
@@ -4680,10 +4799,13 @@ export namespace Prisma {
     transportationNeeded?: SortOrderInput | SortOrder
     specialRequests?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    userId?: SortOrder
+    user?: UserOrderByWithRelationInput
   }
 
   export type EventRegistrationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    email_date_eventType?: EventRegistrationEmailDateEventTypeCompoundUniqueInput
     AND?: EventRegistrationWhereInput | EventRegistrationWhereInput[]
     OR?: EventRegistrationWhereInput[]
     NOT?: EventRegistrationWhereInput | EventRegistrationWhereInput[]
@@ -4698,7 +4820,9 @@ export namespace Prisma {
     transportationNeeded?: BoolNullableFilter<"EventRegistration"> | boolean | null
     specialRequests?: StringNullableFilter<"EventRegistration"> | string | null
     createdAt?: DateTimeFilter<"EventRegistration"> | Date | string
-  }, "id">
+    userId?: StringFilter<"EventRegistration"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "email_date_eventType">
 
   export type EventRegistrationOrderByWithAggregationInput = {
     id?: SortOrder
@@ -4713,6 +4837,7 @@ export namespace Prisma {
     transportationNeeded?: SortOrderInput | SortOrder
     specialRequests?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    userId?: SortOrder
     _count?: EventRegistrationCountOrderByAggregateInput
     _max?: EventRegistrationMaxOrderByAggregateInput
     _min?: EventRegistrationMinOrderByAggregateInput
@@ -4734,6 +4859,7 @@ export namespace Prisma {
     transportationNeeded?: BoolNullableWithAggregatesFilter<"EventRegistration"> | boolean | null
     specialRequests?: StringNullableWithAggregatesFilter<"EventRegistration"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"EventRegistration"> | Date | string
+    userId?: StringWithAggregatesFilter<"EventRegistration"> | string
   }
 
   export type UserCreateInput = {
@@ -4745,6 +4871,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     messages?: ContactMessageCreateNestedManyWithoutUserInput
+    eventRegistrations?: EventRegistrationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -4756,6 +4883,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     messages?: ContactMessageUncheckedCreateNestedManyWithoutUserInput
+    eventRegistrations?: EventRegistrationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -4767,6 +4895,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     messages?: ContactMessageUpdateManyWithoutUserNestedInput
+    eventRegistrations?: EventRegistrationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4778,6 +4907,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     messages?: ContactMessageUncheckedUpdateManyWithoutUserNestedInput
+    eventRegistrations?: EventRegistrationUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -4892,6 +5022,7 @@ export namespace Prisma {
     transportationNeeded?: boolean | null
     specialRequests?: string | null
     createdAt?: Date | string
+    user: UserCreateNestedOneWithoutEventRegistrationsInput
   }
 
   export type EventRegistrationUncheckedCreateInput = {
@@ -4907,6 +5038,7 @@ export namespace Prisma {
     transportationNeeded?: boolean | null
     specialRequests?: string | null
     createdAt?: Date | string
+    userId: string
   }
 
   export type EventRegistrationUpdateInput = {
@@ -4922,6 +5054,7 @@ export namespace Prisma {
     transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
     specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutEventRegistrationsNestedInput
   }
 
   export type EventRegistrationUncheckedUpdateInput = {
@@ -4937,6 +5070,7 @@ export namespace Prisma {
     transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
     specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type EventRegistrationCreateManyInput = {
@@ -4952,6 +5086,7 @@ export namespace Prisma {
     transportationNeeded?: boolean | null
     specialRequests?: string | null
     createdAt?: Date | string
+    userId: string
   }
 
   export type EventRegistrationUpdateManyMutationInput = {
@@ -4982,6 +5117,7 @@ export namespace Prisma {
     transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
     specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5031,12 +5167,22 @@ export namespace Prisma {
     none?: ContactMessageWhereInput
   }
 
+  export type EventRegistrationListRelationFilter = {
+    every?: EventRegistrationWhereInput
+    some?: EventRegistrationWhereInput
+    none?: EventRegistrationWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type ContactMessageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EventRegistrationOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -5167,6 +5313,12 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type EventRegistrationEmailDateEventTypeCompoundUniqueInput = {
+    email: string
+    date: Date | string
+    eventType: $Enums.EventType
+  }
+
   export type EventRegistrationCountOrderByAggregateInput = {
     id?: SortOrder
     firstName?: SortOrder
@@ -5180,6 +5332,7 @@ export namespace Prisma {
     transportationNeeded?: SortOrder
     specialRequests?: SortOrder
     createdAt?: SortOrder
+    userId?: SortOrder
   }
 
   export type EventRegistrationMaxOrderByAggregateInput = {
@@ -5195,6 +5348,7 @@ export namespace Prisma {
     transportationNeeded?: SortOrder
     specialRequests?: SortOrder
     createdAt?: SortOrder
+    userId?: SortOrder
   }
 
   export type EventRegistrationMinOrderByAggregateInput = {
@@ -5210,6 +5364,7 @@ export namespace Prisma {
     transportationNeeded?: SortOrder
     specialRequests?: SortOrder
     createdAt?: SortOrder
+    userId?: SortOrder
   }
 
   export type EnumEventTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5237,11 +5392,25 @@ export namespace Prisma {
     connect?: ContactMessageWhereUniqueInput | ContactMessageWhereUniqueInput[]
   }
 
+  export type EventRegistrationCreateNestedManyWithoutUserInput = {
+    create?: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput> | EventRegistrationCreateWithoutUserInput[] | EventRegistrationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EventRegistrationCreateOrConnectWithoutUserInput | EventRegistrationCreateOrConnectWithoutUserInput[]
+    createMany?: EventRegistrationCreateManyUserInputEnvelope
+    connect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+  }
+
   export type ContactMessageUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ContactMessageCreateWithoutUserInput, ContactMessageUncheckedCreateWithoutUserInput> | ContactMessageCreateWithoutUserInput[] | ContactMessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ContactMessageCreateOrConnectWithoutUserInput | ContactMessageCreateOrConnectWithoutUserInput[]
     createMany?: ContactMessageCreateManyUserInputEnvelope
     connect?: ContactMessageWhereUniqueInput | ContactMessageWhereUniqueInput[]
+  }
+
+  export type EventRegistrationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput> | EventRegistrationCreateWithoutUserInput[] | EventRegistrationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EventRegistrationCreateOrConnectWithoutUserInput | EventRegistrationCreateOrConnectWithoutUserInput[]
+    createMany?: EventRegistrationCreateManyUserInputEnvelope
+    connect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5270,6 +5439,20 @@ export namespace Prisma {
     deleteMany?: ContactMessageScalarWhereInput | ContactMessageScalarWhereInput[]
   }
 
+  export type EventRegistrationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput> | EventRegistrationCreateWithoutUserInput[] | EventRegistrationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EventRegistrationCreateOrConnectWithoutUserInput | EventRegistrationCreateOrConnectWithoutUserInput[]
+    upsert?: EventRegistrationUpsertWithWhereUniqueWithoutUserInput | EventRegistrationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EventRegistrationCreateManyUserInputEnvelope
+    set?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    disconnect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    delete?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    connect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    update?: EventRegistrationUpdateWithWhereUniqueWithoutUserInput | EventRegistrationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EventRegistrationUpdateManyWithWhereWithoutUserInput | EventRegistrationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EventRegistrationScalarWhereInput | EventRegistrationScalarWhereInput[]
+  }
+
   export type ContactMessageUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<ContactMessageCreateWithoutUserInput, ContactMessageUncheckedCreateWithoutUserInput> | ContactMessageCreateWithoutUserInput[] | ContactMessageUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ContactMessageCreateOrConnectWithoutUserInput | ContactMessageCreateOrConnectWithoutUserInput[]
@@ -5282,6 +5465,20 @@ export namespace Prisma {
     update?: ContactMessageUpdateWithWhereUniqueWithoutUserInput | ContactMessageUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: ContactMessageUpdateManyWithWhereWithoutUserInput | ContactMessageUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ContactMessageScalarWhereInput | ContactMessageScalarWhereInput[]
+  }
+
+  export type EventRegistrationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput> | EventRegistrationCreateWithoutUserInput[] | EventRegistrationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: EventRegistrationCreateOrConnectWithoutUserInput | EventRegistrationCreateOrConnectWithoutUserInput[]
+    upsert?: EventRegistrationUpsertWithWhereUniqueWithoutUserInput | EventRegistrationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: EventRegistrationCreateManyUserInputEnvelope
+    set?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    disconnect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    delete?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    connect?: EventRegistrationWhereUniqueInput | EventRegistrationWhereUniqueInput[]
+    update?: EventRegistrationUpdateWithWhereUniqueWithoutUserInput | EventRegistrationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: EventRegistrationUpdateManyWithWhereWithoutUserInput | EventRegistrationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: EventRegistrationScalarWhereInput | EventRegistrationScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutMessagesInput = {
@@ -5298,12 +5495,26 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMessagesInput, UserUpdateWithoutMessagesInput>, UserUncheckedUpdateWithoutMessagesInput>
   }
 
+  export type UserCreateNestedOneWithoutEventRegistrationsInput = {
+    create?: XOR<UserCreateWithoutEventRegistrationsInput, UserUncheckedCreateWithoutEventRegistrationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEventRegistrationsInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type EnumEventTypeFieldUpdateOperationsInput = {
     set?: $Enums.EventType
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type UserUpdateOneRequiredWithoutEventRegistrationsNestedInput = {
+    create?: XOR<UserCreateWithoutEventRegistrationsInput, UserUncheckedCreateWithoutEventRegistrationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutEventRegistrationsInput
+    upsert?: UserUpsertWithoutEventRegistrationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutEventRegistrationsInput, UserUpdateWithoutEventRegistrationsInput>, UserUncheckedUpdateWithoutEventRegistrationsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5473,6 +5684,46 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EventRegistrationCreateWithoutUserInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email: string
+    phoneNumber: string
+    date: Date | string
+    eventType: $Enums.EventType
+    dietaryRequirements?: string | null
+    accommodationNeeded?: boolean | null
+    transportationNeeded?: boolean | null
+    specialRequests?: string | null
+    createdAt?: Date | string
+  }
+
+  export type EventRegistrationUncheckedCreateWithoutUserInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email: string
+    phoneNumber: string
+    date: Date | string
+    eventType: $Enums.EventType
+    dietaryRequirements?: string | null
+    accommodationNeeded?: boolean | null
+    transportationNeeded?: boolean | null
+    specialRequests?: string | null
+    createdAt?: Date | string
+  }
+
+  export type EventRegistrationCreateOrConnectWithoutUserInput = {
+    where: EventRegistrationWhereUniqueInput
+    create: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput>
+  }
+
+  export type EventRegistrationCreateManyUserInputEnvelope = {
+    data: EventRegistrationCreateManyUserInput | EventRegistrationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ContactMessageUpsertWithWhereUniqueWithoutUserInput = {
     where: ContactMessageWhereUniqueInput
     update: XOR<ContactMessageUpdateWithoutUserInput, ContactMessageUncheckedUpdateWithoutUserInput>
@@ -5502,6 +5753,41 @@ export namespace Prisma {
     userId?: StringFilter<"ContactMessage"> | string
   }
 
+  export type EventRegistrationUpsertWithWhereUniqueWithoutUserInput = {
+    where: EventRegistrationWhereUniqueInput
+    update: XOR<EventRegistrationUpdateWithoutUserInput, EventRegistrationUncheckedUpdateWithoutUserInput>
+    create: XOR<EventRegistrationCreateWithoutUserInput, EventRegistrationUncheckedCreateWithoutUserInput>
+  }
+
+  export type EventRegistrationUpdateWithWhereUniqueWithoutUserInput = {
+    where: EventRegistrationWhereUniqueInput
+    data: XOR<EventRegistrationUpdateWithoutUserInput, EventRegistrationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type EventRegistrationUpdateManyWithWhereWithoutUserInput = {
+    where: EventRegistrationScalarWhereInput
+    data: XOR<EventRegistrationUpdateManyMutationInput, EventRegistrationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type EventRegistrationScalarWhereInput = {
+    AND?: EventRegistrationScalarWhereInput | EventRegistrationScalarWhereInput[]
+    OR?: EventRegistrationScalarWhereInput[]
+    NOT?: EventRegistrationScalarWhereInput | EventRegistrationScalarWhereInput[]
+    id?: StringFilter<"EventRegistration"> | string
+    firstName?: StringFilter<"EventRegistration"> | string
+    lastName?: StringFilter<"EventRegistration"> | string
+    email?: StringFilter<"EventRegistration"> | string
+    phoneNumber?: StringFilter<"EventRegistration"> | string
+    date?: DateTimeFilter<"EventRegistration"> | Date | string
+    eventType?: EnumEventTypeFilter<"EventRegistration"> | $Enums.EventType
+    dietaryRequirements?: StringNullableFilter<"EventRegistration"> | string | null
+    accommodationNeeded?: BoolNullableFilter<"EventRegistration"> | boolean | null
+    transportationNeeded?: BoolNullableFilter<"EventRegistration"> | boolean | null
+    specialRequests?: StringNullableFilter<"EventRegistration"> | string | null
+    createdAt?: DateTimeFilter<"EventRegistration"> | Date | string
+    userId?: StringFilter<"EventRegistration"> | string
+  }
+
   export type UserCreateWithoutMessagesInput = {
     id?: string
     firstName?: string | null
@@ -5510,6 +5796,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    eventRegistrations?: EventRegistrationCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutMessagesInput = {
@@ -5520,6 +5807,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    eventRegistrations?: EventRegistrationUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutMessagesInput = {
@@ -5546,6 +5834,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventRegistrations?: EventRegistrationUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMessagesInput = {
@@ -5556,6 +5845,67 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventRegistrations?: EventRegistrationUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutEventRegistrationsInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    messages?: ContactMessageCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutEventRegistrationsInput = {
+    id?: string
+    firstName?: string | null
+    lastName?: string | null
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    messages?: ContactMessageUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutEventRegistrationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutEventRegistrationsInput, UserUncheckedCreateWithoutEventRegistrationsInput>
+  }
+
+  export type UserUpsertWithoutEventRegistrationsInput = {
+    update: XOR<UserUpdateWithoutEventRegistrationsInput, UserUncheckedUpdateWithoutEventRegistrationsInput>
+    create: XOR<UserCreateWithoutEventRegistrationsInput, UserUncheckedCreateWithoutEventRegistrationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutEventRegistrationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutEventRegistrationsInput, UserUncheckedUpdateWithoutEventRegistrationsInput>
+  }
+
+  export type UserUpdateWithoutEventRegistrationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: ContactMessageUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutEventRegistrationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: NullableStringFieldUpdateOperationsInput | string | null
+    lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    messages?: ContactMessageUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ContactMessageCreateManyUserInput = {
@@ -5564,6 +5914,21 @@ export namespace Prisma {
     email: string
     companyName?: string | null
     message: string
+    createdAt?: Date | string
+  }
+
+  export type EventRegistrationCreateManyUserInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email: string
+    phoneNumber: string
+    date: Date | string
+    eventType: $Enums.EventType
+    dietaryRequirements?: string | null
+    accommodationNeeded?: boolean | null
+    transportationNeeded?: boolean | null
+    specialRequests?: string | null
     createdAt?: Date | string
   }
 
@@ -5591,6 +5956,51 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     companyName?: NullableStringFieldUpdateOperationsInput | string | null
     message?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EventRegistrationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    dietaryRequirements?: NullableStringFieldUpdateOperationsInput | string | null
+    accommodationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EventRegistrationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    dietaryRequirements?: NullableStringFieldUpdateOperationsInput | string | null
+    accommodationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type EventRegistrationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    eventType?: EnumEventTypeFieldUpdateOperationsInput | $Enums.EventType
+    dietaryRequirements?: NullableStringFieldUpdateOperationsInput | string | null
+    accommodationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    transportationNeeded?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    specialRequests?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

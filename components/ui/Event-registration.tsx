@@ -58,16 +58,29 @@ const handleCheckboxChange = (name: keyof typeof formData, checked: boolean | st
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     setStatus('Submitting...');
-    // Submit form data to backend
-    console.log('Form submitted:', formData);
-    // Reset form or show success message
-    alert('Registration successful!');
+    
+    // Format the data correctly before submission
+    const submissionData = {
+      ...formData,
+      // Convert Date object to ISO string for the backend
+      date: formData.date ? formData.date.toISOString() : undefined,
+      // Ensure all required fields are present and properly formatted
+      dietaryRequirements: formData.dietaryRequirements || 'None',
+      specialRequests: formData.specialRequests || 'None',
+      // Ensure these are boolean values
+      accommodationNeeded: Boolean(formData.accommodationNeeded),
+      transportationNeeded: Boolean(formData.transportationNeeded)
+    };
+    
+    console.log('Form submitted:', submissionData);
+    
     const res = await fetch('/api/event-registration', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(submissionData),
     });
-const data = await res.json();
+    
+    const data = await res.json();
     if (res.ok) {
       setStatus('Registration successful!');
       setFormData({
@@ -76,7 +89,7 @@ const data = await res.json();
         email: '',
         phoneNumber: '',
         eventType: 'CONFERENCE',
-        date: set(new Date(), { year: 2025, month: 0, date: 1 }), // Default to Jan 1, 2025
+        date: undefined,
         dietaryRequirements: '',
         accommodationNeeded: false,
         transportationNeeded: false,
@@ -85,8 +98,10 @@ const data = await res.json();
       setCurrentStep(1);
     } else {
       setStatus(`Error: ${data.error || 'Something went wrong'}`);
+      console.error('Error details:', data);
     }
-    setStatus(''); // Reset status after submission 
+    
+    setTimeout(() => setStatus(''), 3000); // Reset status after 3 seconds
   };
 
   // Step 1: Personal Details

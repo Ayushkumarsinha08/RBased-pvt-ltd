@@ -22,7 +22,8 @@ model User {
   password       String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-  messages       ContactMessage[] 
+  messages       ContactMessage[]
+  eventRegistrations EventRegistration[]
 }
 
 
@@ -35,7 +36,7 @@ model ContactMessage {
   createdAt    DateTime @default(now())
 
   userId       String
-  user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 
@@ -59,4 +60,10 @@ model EventRegistration {
   transportationNeeded Boolean?
   specialRequests String?
   createdAt   DateTime  @default(now())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@unique([email, date, eventType])  // Prevent duplicate registrations
+  @@index([userId])  // Add an index on userId for faster queries
+  @@index([date])    // Add an index on date if you query by date frequently
 }
