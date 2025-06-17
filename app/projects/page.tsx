@@ -1,18 +1,120 @@
+"use client";
 import { Navbar } from "@/components/ui/NavBar"
-import  EventRegistration  from "../../components/ui/Event-registration";
-import  Footer  from "@/components/ui/Footer";
-export default function ProjectsPage() {
-  return (
-    <div className="bg-black">
-        <Navbar />
-        <div className="flex items-center justify-center pt-30">
-      <div className="h-screen w-full pt-10">
-       <EventRegistration />
-      </div>
-  
-    </div>
+import Footer from "@/components/ui/Footer";
+import { motion } from "framer-motion";
 
-    <Footer/>
-  </div>
-  );
+// Sample projects data - replace with your actual projects
+const projects = [
+	{
+		id: 1,
+		title: "Enterprise Dashboard",
+		description:
+			"A comprehensive Urban Studies platform with real-time data visualization.",
+		image: "/pic-rbased/urban-studies.jpg",
+		tags: ["React", "TypeScript", "D3.js"],
+		link: "#",
+	},
+	{
+		id: 2,
+		title: "E-commerce Platform",
+		description:
+			"Full-stack solution with payment integration and inventory management.",
+		image: "/pic-rbased/enery-sec.jpg",
+		tags: ["Next.js", "MongoDB", "Stripe"],
+		link: "#",
+	},
+	{
+		id: 3,
+		title: "Climatography changes",
+		description:
+			"Secure financial application with biometric authentication.",
+		image: "/pic-rbased/climatology.jpg",
+		tags: ["React Native", "Firebase", "Redux"],
+		link: "#",
+	},
+	{
+		id: 4,
+		title: "Forestry Ecology",
+		description:
+			"ML-powered tool that creates personalized marketing content.",
+		image: "/pic-rbased/forestry-ecology.jpg",
+		tags: ["Python", "TensorFlow", "Next.js"],
+		link: "#",
+	},
+];
+
+export default function ProjectsPage() {
+	return (
+		<div className="bg-black min-h-screen text-gray-200 ">
+			<Navbar />
+
+			<div className="container mx-auto px-4 py-16 pt-25">
+				<motion.h1
+					initial={{ opacity: 0, y: -20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6 }}
+					className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent"
+				>
+					Our Projects
+				</motion.h1>
+
+				<motion.p
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+					className="text-xl text-center max-w-3xl mx-auto mb-16 text-gray-400"
+				>
+					Explore our portfolio of innovative solutions delivering exceptional
+					results for our clients.
+				</motion.p>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+					{projects.map((project, index) => (
+						<motion.div
+							key={project.id}
+							initial={{ opacity: 0, y: 50 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.7, delay: index * 0.2 }}
+							className="bg-gradient-b from-black to-slate-700 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
+						>
+							<div className="h-64 overflow-hidden">
+								<img
+									src={project.image}
+									alt={project.title}
+									className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+								/>
+							</div>
+							<div className="p-6">
+								<h3 className="text-2xl font-bold mb-2 text-white">
+									{project.title}
+								</h3>
+								<p className="text-gray-400 mb-4">
+									{project.description}
+								</p>
+								<div className="flex flex-wrap gap-2 mb-4">
+									{project.tags.map((tag) => (
+										<span
+											key={tag}
+											className="px-3 py-1 bg-gray-800 rounded-full text-sm text-blue-500"
+										>
+											{tag}
+										</span>
+									))}
+								</div>
+								<a
+									href={project.link}
+									className="inline-block px-6 py-2 bg-gradient-to-r from-slate-900 to-gray-900 rounded-md hover: hover: transition-all duration-300 text-white font-medium"
+								>
+									View Project
+								</a>
+							</div>
+						</motion.div>
+					))}
+				</div>
+			</div>
+
+			<Footer />
+		</div>
+	);
 }

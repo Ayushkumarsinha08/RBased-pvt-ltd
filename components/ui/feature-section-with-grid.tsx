@@ -16,7 +16,7 @@ function Feature() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/research-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2 "></div>
+              <div className="bg-[url('/pic-rbased/gis-system.jpg')] bg-cover bg-center rounded-md aspect-video mb-2 "></div>
               <h3 className="text-2xl tracking-tight">RESEARCH BASED SOLUTIONS</h3>
               <p className="text-muted-foreground text-lg">
                 Our goal is to streamline SMB trade, making it easier and faster
@@ -24,7 +24,7 @@ function Feature() {
               </p>
             </div>
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/capacity-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <div className="bg-[url('/pic-rbased/capacity-mngt.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
               <h3 className="text-2xl tracking-tight">CAPACITY BUILDING</h3>
               <p className="text-muted-foreground text-lg">
                 Our goal is to streamline SMB trade, making it easier and faster
@@ -53,7 +53,7 @@ function Feature() {
               </p>
             </div>
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/urban-studies.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <div className="bg-[url('/pic-rbased/studies.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
               <h3 className="text-2xl tracking-tight">URBAN STUDIES</h3>
               <p className="text-muted-foreground text-lg">
               Urban expansion, Site suitability studies, Digitisation and multi-layer map making, Digitisation and multi-layer map making, Solid and wastewater management, etc.

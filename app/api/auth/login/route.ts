@@ -38,7 +38,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate JWT token
-    const token = generateToken(user.id)
+    const token = generateToken(user.id) // Token expires in 1 hour
+    const expiresAt = new Date(Date.now() + 3600000) // 1 hour from now
+    // Update user's last login time
 
     // Don't return the password
     const { password: _, ...userWithoutPassword } = user
@@ -46,7 +48,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         user: userWithoutPassword,
-        token
+        token,
+        expiresAt: expiresAt.toISOString()
       },
       { status: 200 }
     )
