@@ -53,7 +53,7 @@ export default function ProjectsPage() {
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent"
+					className="text-5xl font-bold text-center mb-4 text-stone-100 bg-clip-text"
 				>
 					Our Projects
 				</motion.h1>
