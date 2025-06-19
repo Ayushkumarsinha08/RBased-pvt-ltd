@@ -1,3 +1,6 @@
+"use client";
+import React from "react";
+
 export default function Card({
   title, 
   src, 
@@ -9,15 +12,37 @@ export default function Card({
   readonly description: string,
   readonly videoSrc?: string
 }) {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+  
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
   
   return (
-    <div>
+    <div 
+      className="cursor-pointer" 
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
        <div className="flex flex-col gap-4">
               {videoSrc ? (
                 <video 
+                  ref={videoRef}
                   className="rounded-md aspect-video mb-2" 
                   src={videoSrc} 
                   controls
+                  muted
+                  playsInline
+                  preload="metadata"
                 >
                   <track kind="captions" src="./captions.vtt" label="English captions" />
                 </video>

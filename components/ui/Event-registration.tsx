@@ -223,7 +223,7 @@ const user = localStorage.getItem('token');
     <div className="space-y-6 bg-gradient-to-t from-gray-900 p-8 rounded-lg shadow-xl border border-gray-700">
       <h2 className="text-2xl text-purple-300 font-bold">Step 3: Preferences</h2>
       <div className="space-y-3 text-gray-200">
-        <Label className='text-xl font-bold' htmlFor="dietaryRequirements">Dietary Requirements</Label>
+        <Label className='text-xl font-bold' htmlFor="dietaryRequirements">Audience</Label>
         <RadioGroup 
           value={formData.dietaryRequirements}
           onValueChange={(value: string) => setFormData({...formData, dietaryRequirements: value})}
