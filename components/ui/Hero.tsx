@@ -102,7 +102,6 @@ export default function Hero() {
       <EventRegistration />
 
       {/* Call to Action Section */}
-      <ContactCard />
       
       {/* Additional Section */}
       <div className="max-w-8xl mx-auto mt-20 text-center">

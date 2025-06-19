@@ -10,53 +10,76 @@ function Feature() {
                 Services We Provide is Here
               </h2>
               <p className="text-2xl max-w-xl lg:max-w-5xl leading-relaxed  tracking-tight text-muted-foreground  text-left">
-              We use the latest and best scientifically approved methodologies available in the research domain and help in GIS data collection, management and visualization through interactive and user-friendly apps and web portal development. 
+              RBased Services is an innovative step taken by the researchers and alumni of top technical
+institutes and pioneer institute or Remote Sensing and GIS in India, Indian Institute of Remote
+Sensing, ISRO Dehradun which is aimed at providing, Research Based Solution to Real Life
+Problems. 
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/pic-rbased/gis-system.jpg')] bg-cover bg-center rounded-md aspect-video mb-2 "></div>
-              <h3 className="text-2xl tracking-tight">RESEARCH BASED SOLUTIONS</h3>
+              <div className="bg-[url('/pic-rbased/hydrology.jpg')] bg-cover bg-center rounded-md aspect-video mb-2 "></div>
+              <h3 className="text-2xl tracking-tight">HYDROLOGY</h3>
               <p className="text-muted-foreground text-lg">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/pic-rbased/capacity-mngt.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
-              <h3 className="text-2xl tracking-tight">CAPACITY BUILDING</h3>
-              <p className="text-muted-foreground text-lg">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/water-img.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
-              <h3 className="text-2xl tracking-tight">WATER RESOURCES</h3>
-              <p className="text-muted-foreground text-lg">
-              Hydrological modelling to quantify the distribution of water coming into the basin into different components like Runoff estimation and groundwater, Glaciological studies, Hydraulic modelling of rivers, etc.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/disaster.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
-              <h3 className="text-2xl tracking-tight">DISASTER MANAGEMENT</h3>
-              <p className="text-muted-foreground text-lg">
-              Flood and flash flood Mapping, Modelling, Risk assessment and mitigation strategies, Forest fire mapping and prediction, Landslide risk-mapping, Drought prediction and damage assessment, etc.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/images/climate.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
-              <h3 className="text-2xl tracking-tight">CLIMATE STUDIES</h3>
-              <p className="text-muted-foreground text-lg">
-              Climate change and climate variability studies, Numerical modelling of rainfall, Seasonal comparison of rainfall datasets, Asssessment of Weather and Temperature extremes, etc.
+              Hydrological modeling to quantify the distribution of water coming into the basin into
+              different components like runoff and ground water.
               </p>
             </div>
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
               <div className="bg-[url('/pic-rbased/studies.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">AGRICULTURAL STUDIES</h3>
+              <p className="text-muted-foreground text-lg">
+              Irrigation monitoring and management, command area mapping. Land cover and land degradation mapping.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/urban-studies.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
               <h3 className="text-2xl tracking-tight">URBAN STUDIES</h3>
               <p className="text-muted-foreground text-lg">
-              Urban expansion, Site suitability studies, Digitisation and multi-layer map making, Digitisation and multi-layer map making, Solid and wastewater management, etc.
+              Urban water logging. Urban expansion. Site suitability studies. Water distribution system analysis and planning. Digitization and multi-layer map making.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/forestry-ecology.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">FORESTRY AND ECOLOGY</h3>
+              <p className="text-muted-foreground text-lg">
+              Forest type classification. Forest density classification. Habitat suitability Map. Forest fire spread Modelling. Environmental Impact Assessment, EIA studies. 
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/photogramentry.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">DISASTER MANGEMENT</h3>
+              <p className="text-muted-foreground text-lg">
+              Flood Risk assessment and mitigation strategies. Forest fire mapping and prediction. Landslide risk zonation. Drought prediction and damage assessment.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/climatology.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">CLIMATOLOGY</h3>
+              <p className="text-muted-foreground text-lg">
+              Numerical modelling of rainfall. Cloudburst prediction. Climate change and climate variability studies.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/enery-sec.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">ENERGY SECTOR</h3>
+              <p className="text-muted-foreground text-lg">
+              Use of remote sensing and GIS in solar energy. GIS and bioenergy. GIS for wind power. 3D solar rooftop potential estimation. Terrain suitability and stability for proposed sits.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/gis-system.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">HEALTH GIS</h3>
+              <p className="text-muted-foreground text-lg">
+              Mapping and Management of Health Infrastructure. Geospatially studying the spread of any infection. Medical Resources allocation and management.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/capacity-mngt.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">CAPACITY BUILDING CELL</h3>
+              <p className="text-muted-foreground text-lg">
+              Workshops for Professionals like IFS and CWC officers. Professional course of Remote Sensing and GIS in Engineering Colleges.
               </p>
             </div>
           </div>

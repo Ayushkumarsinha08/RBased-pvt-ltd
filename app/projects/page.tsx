@@ -7,38 +7,34 @@ import { motion } from "framer-motion";
 const projects = [
 	{
 		id: 1,
-		title: "Enterprise Dashboard",
+		title: "Water Balance study and Web Portal Development ",
 		description:
 			"A comprehensive Urban Studies platform with real-time data visualization.",
 		image: "/pic-rbased/urban-studies.jpg",
-		tags: ["React", "TypeScript", "D3.js"],
 		link: "#",
 	},
 	{
 		id: 2,
-		title: "E-commerce Platform",
+		title: "Preparation of Geo-database of Delhi city for Property Crow Services Pvt. Ltd.",
 		description:
 			"Full-stack solution with payment integration and inventory management.",
 		image: "/pic-rbased/enery-sec.jpg",
-		tags: ["Next.js", "MongoDB", "Stripe"],
 		link: "#",
 	},
 	{
 		id: 3,
-		title: "Climatography changes",
+		title: "Drone data processing for Agricultural Monitoring and Management in for Wind Hawk.",
 		description:
 			"Secure financial application with biometric authentication.",
 		image: "/pic-rbased/climatology.jpg",
-		tags: ["React Native", "Firebase", "Redux"],
 		link: "#",
 	},
 	{
 		id: 4,
-		title: "Forestry Ecology",
+		title: "Drone data processing for solar potential estimation and terrain survey for Global Sustainability Solution India",
 		description:
 			"ML-powered tool that creates personalized marketing content.",
 		image: "/pic-rbased/forestry-ecology.jpg",
-		tags: ["Python", "TensorFlow", "Next.js"],
 		link: "#",
 	},
 ];
@@ -92,16 +88,7 @@ export default function ProjectsPage() {
 								<p className="text-gray-400 mb-4">
 									{project.description}
 								</p>
-								<div className="flex flex-wrap gap-2 mb-4">
-									{project.tags.map((tag) => (
-										<span
-											key={tag}
-											className="px-3 py-1 bg-gray-800 rounded-full text-sm text-blue-500"
-										>
-											{tag}
-										</span>
-									))}
-								</div>
+							
 								<a
 									href={project.link}
 									className="inline-block px-6 py-2 bg-gradient-to-r from-slate-900 to-gray-900 rounded-md hover: hover: transition-all duration-300 text-white font-medium"
