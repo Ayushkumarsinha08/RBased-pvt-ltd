@@ -6,7 +6,7 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen bg-black text-gray-100">
       {/* Navigation */}
       <Navbar />
-<div className="pb-20">
+<div className="pt-10">
 <ContactCard />
 </div>
      
