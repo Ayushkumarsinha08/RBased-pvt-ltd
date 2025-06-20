@@ -85,7 +85,7 @@ development opportunities, and vegetation types.
                         description={"This is a Real Life Problems Through GIS and RBASED solutions."}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl mask-linear-from-neutral-500 text-center">Drone Visualization App</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl mask-linear-from-neutral-500 underline ">Drone Visualization App</h2>
                         <p className="text-xl md:text-2xl lg:text-2xl font-medium px-6 pt-4 leading-relaxed">
 RBased Services is an innovative step taken by the researchers and alumni of top technical
 institutes and pioneer institute or Remote Sensing and GIS in India, Indian Institute of Remote
@@ -97,7 +97,7 @@ Problems.
                 {/* Fourth Section - Text on left, Card on right */}
                 <div className="bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8">  
                     <div className="flex flex-col items-center justify-center space-y-4">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl mask-linear-from-neutral-500 text-center">West Bengal Digital Info System</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl mask-linear-from-neutral-500 underline text-center">West Bengal Digital Info System</h2>
                         <p className="text-xl md:text-2xl lg:text-2xl font-medium px-6 pt-4 leading-relaxed">
                         Our team at RBased comprises the experts from multiple domains like Remote
 Sensing, Geographic Information System, Hydrology, Agriculture, Forestry, Environmental

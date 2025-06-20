@@ -7,19 +7,20 @@ import { motion } from "framer-motion";
 const projects = [
 	{
 		id: 1,
-		title: "Water Balance study and Web Portal Development ",
+		title: "Udanti Sitanadi Drone Visualization App",
 		description:
 			"A comprehensive Urban Studies platform with real-time data visualization.",
 		image: "/pic-rbased/urban-studies.jpg",
-		link: "#",
+		link: "https://ustrdroneportal.in/",
+		className: "bg-gradient-to-r from-purple-500 to-pink-500 target:blank",
 	},
 	{
 		id: 2,
-		title: "Preparation of Geo-database of Delhi city for Property Crow Services Pvt. Ltd.",
+		title: "Digital Information System for West Bengal",
 		description:
 			"Full-stack solution with payment integration and inventory management.",
 		image: "/pic-rbased/enery-sec.jpg",
-		link: "#",
+		link: "https://gis-siidcul.com/",
 	},
 	{
 		id: 3,
@@ -37,6 +38,23 @@ const projects = [
 		image: "/pic-rbased/forestry-ecology.jpg",
 		link: "#",
 	},
+	{
+		id: 5,
+		title: "Preparation of Geo-database of Delhi city for Property Crow Services Pvt. Ltd.",
+		description:
+			"AI-driven analytics platform for real-time business insights.",
+		image: "/pic-rbased/photogramentry.jpg",
+		link: "#",
+	},
+	{
+		id: 6,
+		title: "Water Balance study and Web Portal Development.",
+		description:
+			"Cloud-based collaboration tool with project management features.",
+		image: "/pic-rbased/gis-system.jpg",
+		link: "#",
+	},
+	
 ];
 
 export default function ProjectsPage() {
