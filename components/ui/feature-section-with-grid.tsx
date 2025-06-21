@@ -48,7 +48,7 @@ Problems.
               </p>
             </div>
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
-              <div className="bg-[url('/pic-rbased/photogramentry.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <div className="bg-[url('/pic-rbased/dist-mngt.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
               <h3 className="text-2xl tracking-tight">DISASTER MANGEMENT</h3>
               <p className="text-muted-foreground text-lg">
               Flood Risk assessment and mitigation strategies. Forest fire mapping and prediction. Landslide risk zonation. Drought prediction and damage assessment.
@@ -82,6 +82,24 @@ Problems.
               Workshops for Professionals like IFS and CWC officers. Professional course of Remote Sensing and GIS in Engineering Colleges.
               </p>
             </div>
+
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/photogramentry.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">PHOTOGRAMMETRY</h3>
+              <p className="text-muted-foreground text-lg">
+              Description of the new service offered, highlighting its benefits and applications.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
+              <div className="bg-[url('/pic-rbased/capacity.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
+              <h3 className="text-2xl tracking-tight">GEOGRAPHIC INFORMATION SYSTEM</h3>
+              <p className="text-muted-foreground text-lg">
+              Description of the new service offered, highlighting its benefits and applications.
+              </p>
+            </div>
+
+            
           </div>
         </div>
       </div>

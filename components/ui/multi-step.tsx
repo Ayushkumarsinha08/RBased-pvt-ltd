@@ -150,21 +150,17 @@ export default function MultiStepForm() {
         )}
 
         <div className="min-h-[400px] flex items-center justify-center">
-          <div className={`w-full transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`w-full h-full transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
             {step === 1 && (
-              <div>
-                <h2 className="text-xl font-bold mb-6 text-center text-white">How many employees does your business have?</h2>
+              <div onClick={nextStep}>
+                <h2 className="text-xl font-bold mb-6 text-center text-white">START TO REGISTER</h2>
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                   {[
-                    ["1-10", "mdi-account"],
-                    ["11-50", "mdi-account-multiple"],
-                    ["51-200", "mdi-account-group"],
-                    ["201-500", "mdi-account-group-outline"],
-                    ["500+", "mdi-account-multiple-plus"]
+                    ["STARTED", "mdi-account"],
                   ].map(([val, icon]) => renderOption(val, formData.vehicles_assets, "vehicles_assets", icon))}
                 </div>
                 <div className="flex justify-end mt-8">
-                  <button type="button" className="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-8 min-w-[120px] rounded-lg transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1" onClick={nextStep}>Next</button>
+                  
                 </div>
               </div>
             )}
@@ -174,12 +170,17 @@ export default function MultiStepForm() {
                 <h2 className="text-xl font-bold mb-6 text-center text-white">What industry is your business in?</h2>
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                   {[
-                    ["Retail", "mdi-store"],
-                    ["Manufacturing", "mdi-factory"],
-                    ["Services", "mdi-lan"],
-                    ["Technology", "mdi-desktop-mac"],
-                    ["Healthcare", "mdi-hospital"],
-                    ["All Others", "mdi-dots-horizontal"]
+                    ["Hydrology", "mdi-store"],
+                    ["Agricultural Studies", "mdi-factory"],
+                    ["Disaster Management Studies", "mdi-lan"],
+                    ["Urban Studies", "mdi-desktop-mac"],
+                    ["Forestry and Ecology", "mdi-hospital"],
+                    ["Photogrammetry", "mdi-home"],
+                    ["Climatology", "mdi-earth"],
+                    ["Energy Sector", "mdi-map"],
+                    ["Health GIS ", "mdi-map-marker"],
+                    ["Geographic Information System", "mdi-leaf"],
+                    ["Capacity Building Cell","mdi-map"]
                   ].map(([val, icon]) => renderOption(val, formData.industry, "industry", icon))}
                 </div>
                 <div className="flex justify-between mt-8">
