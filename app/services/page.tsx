@@ -16,6 +16,7 @@ export default function Services() {
             <div className="">
             <Feature />
             </div>
+            <hr/>
             <div className="flex justify-center items-center bg-black">
                 <MultiStepForm />
             </div>

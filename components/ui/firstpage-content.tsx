@@ -25,7 +25,7 @@ export default function Content() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % features.length);
-    }, 5000);
+    }, 9000);
     
     return () => clearInterval(interval);
   }, [features.length]);
@@ -39,17 +39,17 @@ export default function Content() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-gray-300 py-12 px-4 pt-10">
+    <div className="flex flex-col items-center justify-center bg-black relative text-gray-300">
       
       {/* Carousel */}
-      <div className=" w-full h-[90vh] pt-2 max-w-full mb-16">
+      <div className=" w-340 h-150 pt-2 max-w-full relative overflow-hidden rounded-2xl">
         <div className="overflow-hidden rounded-lg shadow-2xl">
           <div 
             className="flex transition-transform duration-500 ease-in-out" 
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {features.map((feature, index) => (
-              <div key={index} className="w-full flex-shrink-0">
+              <div key={index} className="w-full flex-shrink-0 relative">
                 <div 
                   className="relative h-64 md:h-[80vh]"
                   style={{
@@ -58,11 +58,13 @@ export default function Content() {
                     backgroundPosition: 'center'
                   }}
                 >
-                  
                 </div>
-                <div className="p-6 bg-black">
-                    <h1 className="text-3xl font-extrabold tracking-tight text-center pt-4">{feature.title} </h1>
-                    <h2 className="text-xl font-semibold mb-2 pb-2 text-center">Research-Based Solutions to Real-Life Problems through Remote Sensing and GIS</h2>
+                <div className="absolute top-0 left-120 right-20 bottom-0 flex flex-col justify-center items-center bg-black/10 backdrop-blur-sm">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-wide text-white mb-3 text-center font-serif">
+                    {feature.title}
+                  </h1>
+                  <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full mb-4"></div>
+                  <h2 className="text-xl mb-2 pb-2 text-center text-white">Research-Based Solutions to Real-Life Problems through Remote Sensing and GIS</h2>
                 </div>
               </div>
             ))}
@@ -72,13 +74,13 @@ export default function Content() {
         {/* Navigation Arrows */}
         <button 
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-r-lg hover:bg-black/70"
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-r-lg hover:bg-black/70"
         >
           &#10094;
         </button>
         <button 
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-l-lg hover:bg-black/70"
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-l-lg hover:bg-black/70"
         >
           &#10095;
         </button>
