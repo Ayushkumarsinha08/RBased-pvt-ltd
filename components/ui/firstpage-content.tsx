@@ -39,7 +39,7 @@ export default function Content() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-black relative text-gray-300">
+    <div className="flex flex-col items-center justify-center relative text-gray-300">
       
       {/* Carousel */}
       <div className=" w-340 h-150 pt-2 max-w-full relative overflow-hidden rounded-2xl">

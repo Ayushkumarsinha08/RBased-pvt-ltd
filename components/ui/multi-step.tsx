@@ -59,12 +59,24 @@ export default function MultiStepForm() {
 
   const nextStep = () => {
     const requiredFields: Record<number, keyof FormData> = {
-      1: "vehicles_assets",
+      // Remove step 1 validation by removing its entry
       2: "industry",
       3: "interests",
       4: "contact_method"
     };
     const currentField = requiredFields[step];
+    
+    // Auto-set the vehicles_assets field when moving from step 1
+    if (step === 1) {
+      setFormData(prev => ({ ...prev, vehicles_assets: "STARTED" }));
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setStep(prev => prev + 1);
+        setIsTransitioning(false);
+      }, 300);
+      return;
+    }
+    
     if (currentField && !formData[currentField]) {
       setNotification("Please select an option before proceeding.");
       return;
@@ -157,7 +169,16 @@ export default function MultiStepForm() {
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                   {[
                     ["STARTED", "mdi-account"],
-                  ].map(([val, icon]) => renderOption(val, formData.vehicles_assets, "vehicles_assets", icon))}
+                  ].map(([val, icon]) => (
+                    <div
+                      key={val}
+                      className="cursor-pointer px-6 py-4 rounded-lg border text-center font-medium flex flex-col items-center gap-2 w-32 h-32 justify-center transform transition-all duration-200 bg-indigo-600 text-white border-indigo-600 scale-105"
+                      onClick={() => handleOptionClick("vehicles_assets", val)}
+                    >
+                      <i className={`mdi ${icon} text-3xl`} />
+                      <span>{val}</span>
+                    </div>
+                  ))}
                 </div>
                 <div className="flex justify-end mt-8">
                   
@@ -238,6 +259,7 @@ export default function MultiStepForm() {
                     <input
                       type="text"
                       id="first_name"
+                      placeholder="First Name"
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.first_name}
                       onChange={(e) => setFormData(prev => ({ ...prev, first_name: e.target.value }))}
@@ -249,6 +271,7 @@ export default function MultiStepForm() {
                     <input
                       type="text"
                       id="last_name"
+                      placeholder="Last Name"
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.last_name}
                       onChange={(e) => setFormData(prev => ({ ...prev, last_name: e.target.value }))}
@@ -260,28 +283,40 @@ export default function MultiStepForm() {
                     <input
                       type="email"
                       id="email"
+                      placeholder="Email Address"
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.email}
                       onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                       required
                     />
                   </div>
-                  <div>
+                    <div>
                     <label htmlFor="phone_number" className="block text-gray-300 mb-2">Phone Number *</label>
                     <input
                       type="tel"
                       id="phone_number"
+                      placeholder="Phone Number"
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.phone_number}
-                      onChange={(e) => setFormData(prev => ({ ...prev, phone_number: e.target.value }))}
+                      onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                      setFormData(prev => ({ ...prev, phone_number: value }));
+                      }}
+                      pattern="[0-9]{10}"
+                      maxLength={10}
+                      title="Phone number must be 10 digits"
                       required
                     />
-                  </div>
+                    {formData.phone_number && formData.phone_number.length !== 10 && (
+                      <p className="text-red-200 text-sm mt-1">Phone number must be exactly 10 digits</p>
+                    )}
+                    </div>
                   <div className="md:col-span-2">
                     <label htmlFor="company_name" className="block text-gray-300 mb-2">Company Name *</label>
                     <input
                       type="text"
                       id="company_name"
+                      placeholder="Company Name"
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.company_name}
                       onChange={(e) => setFormData(prev => ({ ...prev, company_name: e.target.value }))}
@@ -292,6 +327,7 @@ export default function MultiStepForm() {
                     <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
                     <textarea
                       id="message"
+                      placeholder="Your message here..."
                       rows={4}
                       className="w-full bg-gray-800 border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       value={formData.message}

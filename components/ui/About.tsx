@@ -1,11 +1,11 @@
 export default function About() {
     return (
         <div className="flex flex-col h-[80vh]">
-        <main className="flex-grow bg-black relative overflow-hidden">
+        <main className="flex-grow relative overflow-hidden">
     
             {/* About Section */}
             <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-            <h1 className="text-3xl lg:text-5xl font-bold text-white underline mb-6">
+            <h1 className="text-6xl lg:text-6xl font-extralight text-white mb-6">
                 ABOUT US
             </h1>
             <p className="text-lg text-gray-300 mb-8">

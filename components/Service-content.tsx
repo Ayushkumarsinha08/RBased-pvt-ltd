@@ -1,8 +1,8 @@
 import Card from "./ui/Card"
 export default function ServicePage() {
 return(
-    <div>
-        <h2 className="flex justify-center pt-30 text-center text-3xl md:text-5xl font-regular">
+    <div className="p-40">
+        <h2 className="flex justify-center text-center text-3xl md:text-5xl font-regular">
                 Services We Provide is Here
               </h2> 
           {/* First Section - Card on left, Text on right */}
