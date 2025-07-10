@@ -13,7 +13,7 @@ export default function Content() {
     {
       title: "RBASED SERVICES PVT LTD",
       description: "Access professional-grade tools designed for efficiency",
-      image: "/images/karnatak.jpg"
+      image: "/pic-rbased/capacity.jpg"
     },
     {
       title: "RBASED SERVICES PVT LTD",
