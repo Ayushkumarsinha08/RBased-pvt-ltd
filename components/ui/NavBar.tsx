@@ -50,8 +50,8 @@ export function Navbar() {
                     href={href}
                     className={`text-base font-medium transition-colors ${
                       pathname === href
-                        ? "text-white font-semibold"
-                        : "text-gray-400 hover:text-white"
+                        ? "text-cyan-400 font-semibold"
+                        : "text-gray-400 hover:text-cyan-400"
                     }`}
                   >
                     {name}
