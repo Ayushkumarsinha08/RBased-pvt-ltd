@@ -8,13 +8,7 @@ function Feature() {
             <div className="flex gap-2 flex-col items-center">
               <h2 className="text-3xl md:text-5xl tracking-tighter max-w-3xl font-regular text-left">
                 Services We Provide is Here
-              </h2>
-              <p className="text-2xl max-w-xl lg:max-w-5xl leading-relaxed  tracking-tight text-muted-foreground  text-left">
-              RBased Services is an innovative step taken by the researchers and alumni of top technical
-institutes and pioneer institute or Remote Sensing and GIS in India, Indian Institute of Remote
-Sensing, ISRO Dehradun which is aimed at providing, Research Based Solution to Real Life
-Problems. 
-              </p>
+              </h2> 
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,7 +43,7 @@ Problems.
             </div>
             <div className="flex flex-col gap-4 overflow-hidden shadow-lg transition-transform hover:scale-105">
               <div className="bg-[url('/pic-rbased/dist-mngt.jpg')] bg-cover bg-center rounded-md aspect-video mb-2"></div>
-              <h3 className="text-2xl tracking-tight">DISASTER MANGEMENT</h3>
+              <h3 className="text-2xl tracking-tight">DISASTER MANAGEMENT</h3>
               <p className="text-muted-foreground text-lg">
               Flood Risk assessment and mitigation strategies. Forest fire mapping and prediction. Landslide risk zonation. Drought prediction and damage assessment.
               </p>

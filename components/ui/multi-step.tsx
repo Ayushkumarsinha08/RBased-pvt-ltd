@@ -126,7 +126,7 @@ export default function MultiStepForm() {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <form onSubmit={handleSubmit} className="w-full max-w-4xl bg-gradient-to-b from-gray-950 p-8 rounded-lg shadow-xl border border-gray-800 relative">
         {/* Progress indicator */}
         <div className="text-center text-indigo-400 text-lg font-semibold mb-6">
