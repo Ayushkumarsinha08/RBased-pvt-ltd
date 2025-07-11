@@ -53,12 +53,12 @@ export function SignupForm() {
   };
 
   return (
-    <div className="max-w-md w-full h-165 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-gradient-to-b from-gray-950 dark:bg-gradient-to-b to black">
+    <div className="max-w-md w-full h-165 mx-auto rounded-none md:rounded-2xl md:p-8 shadow-input bg-gradient-to-b from-gray-950 dark:bg-gradient-to-b to black">
       <h2 className="font-bold text-center text-3xl text-neutral-800 dark:text-neutral-200">
-        RBASED Pvt Ltd
+        Rbased Services
       </h2>
-      <p className="text-neutral-600 text-lg  max-w-sm mt-2 dark:text-neutral-300">
-        Sign up to RBased to access exclusive features and content.
+      <p className="text-neutral-600 text-lg  max-w-sm mt-2 dark:text-neutral-300 text-center">
+        Sign up to RBased 
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
@@ -147,7 +147,7 @@ export function SignupForm() {
           disabled={loading}
         >
           <span className="text-neutral-700 dark:text-neutral-300 text-lg"> 
-          {loading ? "Submitting..." : "Sign up "}
+          {loading ? "Submitting..." : "Submit "}
           </span>
           <BottomGradient />
         </button>
@@ -167,19 +167,7 @@ export function SignupForm() {
             </span>
             <BottomGradient />
           </button>
-          <button
-            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 hover:cursor-pointer dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="button"
-            onClick={() => signIn("")} 
-          >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            
-            
-            <span className="text-neutral-700 dark:text-neutral-300 text-lg">
-              Google
-            </span>
-            <BottomGradient />
-          </button>
+        
          
         </div>
       </form>

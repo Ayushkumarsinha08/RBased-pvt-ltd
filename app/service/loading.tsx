@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 // Create a dynamic import for the Map component to avoid SSR issues with Leaflet
-const MapWithNoSSR = dynamic(() => import('./../../components/ui/Map'), {
+const MapWithNoSSR = dynamic(() => import('../../components/ui/Map'), {
   ssr: false,
   loading: () => (
     <div className="h-screen w-full flex items-center justify-center bg-black">

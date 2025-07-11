@@ -2,14 +2,9 @@ import ServicePage from "@/components/Service-content";
 import Footer from "@/components/ui/Footer";
 import MultiStepForm from "@/components/ui/multi-step";
 import { Navbar } from "@/components/ui/NavBar";
-
 export default function Services() {
-
-
-
-
-    return (
-        <div>
+    return ( 
+    <div>
             <Navbar />
             <div>
             <ServicePage/>
@@ -18,7 +13,6 @@ export default function Services() {
             <div className="flex justify-center items-center">
                 <MultiStepForm />
             </div>
-            
             <Footer />
         </div>
     );

@@ -39,7 +39,7 @@ export default function Home ( ){
                         description={"This is a Real Life Problems Through GIS and RBASED solutions."}
                     />
                     <div className="flex flex-col items-center pt-15  space-y-4">
-                        <h2 className="text-4xl font-extralight md:text-3xl lg:text-6xl">Drone Visualization App</h2>
+                        <h2 className="text-4xl font-extralight md:text-2xl lg:text-6xl text-center">Drone Visualization App</h2>
                         <p className="text-xl md:text-xl lg:text-2xl font-extralight px-6 pt-4 leading-relaxed">
                         The Data Visualization App is a powerful, interactive web-based platform designed to help 
 stakeholders easily manage, visualize, and analyze drone-captured and geospatial data. 

@@ -70,7 +70,7 @@ export default function Login() {
               <button
               type="button"
                 onClick={() => router.push("/signup")}
-                className="px-4 py-2 rounded-md text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 w-full"
+                className="px-4 py-2 rounded-md text-white font-semibold bg-muted w-full"
               >
                 Register
               </button>
@@ -140,7 +140,8 @@ export default function Login() {
                   onClick={() => router.push("/auth/otp-login")}
                   className="px-4 py-3 w-full bg-gray-900 rounded-md text-gray-100 font-medium shadow hover:cursor-pointer hover:bg-slate-900"
                 >
-                  OTP Login
+
+                  Phone Login
                 </button>
               </div>
 
