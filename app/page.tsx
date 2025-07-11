@@ -31,7 +31,7 @@ export default function Home ( ){
                 {/* Our Projects Section Header */}
                 <div className="pt-20 text-center text-6xl font-extralight">OUR PROJECTS</div>               
                 {/* Third Section - Card with video on left, Text on right */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-30">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:p-30">
                     <Card 
                         src={"/images/research-img.jpg"}
                         videoSrc={"/map-video.mp4"}
@@ -39,8 +39,8 @@ export default function Home ( ){
                         description={"This is a Real Life Problems Through GIS and RBASED solutions."}
                     />
                     <div className="flex flex-col items-center pt-15  space-y-4">
-                        <h2 className="text-4xl font-extralight md:text-5xl lg:text-6xl">Drone Visualization App</h2>
-                        <p className="text-xl md:text-2xl lg:text-2xl font-extralight px-6 pt-4 leading-relaxed">
+                        <h2 className="text-4xl font-extralight md:text-3xl lg:text-6xl">Drone Visualization App</h2>
+                        <p className="text-xl md:text-xl lg:text-2xl font-extralight px-6 pt-4 leading-relaxed">
                         The Data Visualization App is a powerful, interactive web-based platform designed to help 
 stakeholders easily manage, visualize, and analyze drone-captured and geospatial data. 
 It transforms complex environmental data into intuitive visual insights through dynamic 
@@ -49,7 +49,7 @@ mapping, real-time overlays, and user-friendly dashboards.
                                   </div>
                 </div>
                 {/* Fourth Section - Text on left, Card on right */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-30 pt-8">  
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:p-30 pt-8">  
                     <div className="flex flex-col items-center pt-20 space-y-4">
                         <h2 className="text-4xl font-extralight md:text-5xl lg:text-6xl text-center">West Bengal Digital Info System</h2>
                         <p className="text-xl md:text-2xl lg:text-2xl font-extralight px-6 pt-4 leading-relaxed">

@@ -138,7 +138,7 @@ export default function MultiStepForm() {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center">
       <form onSubmit={handleSubmit} className="w-full max-w-4xl bg-gradient-to-b from-gray-950 p-8 rounded-lg shadow-xl border border-gray-800 relative">
         {/* Progress indicator */}
         <div className="text-center text-indigo-400 text-lg font-semibold mb-6">
@@ -189,7 +189,7 @@ export default function MultiStepForm() {
             {step === 2 && (
               <div>
                 <h2 className="text-xl font-bold mb-6 text-center text-white">What industry is your business in?</h2>
-                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8 justify-items-center">
                   {[
                     ["Hydrology", "mdi-store"],
                     ["Agricultural Studies", "mdi-factory"],
@@ -214,14 +214,14 @@ export default function MultiStepForm() {
             {step === 3 && (
               <div>
                 <h2 className="text-xl font-bold mb-6 text-center text-white">What services are you interested in?</h2>
-                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8 justify-items-center">
                   {[
-                    ["Consulting", "mdi-lightbulb-on"],
-                    ["Integration", "mdi-connection"],
-                    ["Development", "mdi-code-braces"],
-                    ["Maintenance", "mdi-wrench"],
-                    ["Training", "mdi-school"],
-                    ["Support", "mdi-headset"]
+                  ["Consulting", "mdi-lightbulb-on"],
+                  ["Integration", "mdi-connection"],
+                  ["Development", "mdi-code-braces"],
+                  ["Maintenance", "mdi-wrench"],
+                  ["Training", "mdi-school"],
+                  ["Support", "mdi-headset"]
                   ].map(([val, icon]) => renderOption(val, formData.interests, "interests", icon))}
                 </div>
                 <p className="text-gray-400 text-center mb-6 text-sm">Select multiple options if needed</p>

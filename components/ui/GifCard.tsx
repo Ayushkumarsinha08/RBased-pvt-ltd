@@ -8,7 +8,7 @@ interface GifCardProps {
 
 export default function GifCard({ src, title, description }: GifCardProps) {
     return (
-        <div className="rounded-lg shadow-lg overflow-hidden">
+        <div className="rounded-lg sm:w-full md:w-full lg:w-full shadow-lg overflow-hidden">
             <div className="relative">
                 
                 <div>
@@ -25,8 +25,8 @@ export default function GifCard({ src, title, description }: GifCardProps) {
                     </video>
                 </div>
                 <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center p-4 text-center">
-                    <h2 className="text-cyan-300 text-7xl font-extralight mb-4">{title}</h2>
-                    <p className="text-white text-4xl font-extralight max-w-3xl">{description}</p>
+                    <h2 className="text-cyan-300 font-extralight mb-4 text-4xl sm:text-4xl md:text-7xl">{title}</h2>
+                    <p className="text-white text-xl sm:text-2xl md:text-4xl font-extralight max-w-3xl">{description}</p>
                 </div>
 
             </div>

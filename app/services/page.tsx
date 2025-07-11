@@ -1,5 +1,3 @@
-"use client";
-
 import ServicePage from "@/components/Service-content";
 import Footer from "@/components/ui/Footer";
 import MultiStepForm from "@/components/ui/multi-step";
@@ -11,9 +9,9 @@ export default function Services() {
 
 
     return (
-        <div className="w-full">
+        <div>
             <Navbar />
-            <div className="">
+            <div>
             <ServicePage/>
             </div>
             <hr/>

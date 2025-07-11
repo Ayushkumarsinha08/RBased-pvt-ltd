@@ -1,8 +1,8 @@
 import Card from "./ui/Card"
 export default function ServicePage() {
 return(
-    <div className="p-40">
-        <h2 className="flex justify-center text-center text-3xl md:text-5xl font-regular">
+    <div className="md:p-50">
+        <h2 className="flex justify-center text-center text-3xl pt-20 md:pt-1 md:text-5xl font-regular">
                 Services We Provide is Here
               </h2> 
           {/* First Section - Card on left, Text on right */}
@@ -14,8 +14,8 @@ return(
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8"> 
                     <Card 
                         src="/pic-rbased/hydrology.jpg"
-                        title={"Research Based Services"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-2xl font-extralight md:text-5xl lg:text-6xl text-center">Hydrology</h2>
@@ -43,8 +43,8 @@ return(
                     <div className="space-y-4">
                         <Card 
                             src={"/pic-rbased/studies.jpg"}
-                            title={"Real Life Problems Through"}
-                            description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                            title={""}
+                            description={""}
                         />
                     </div>
                 </div>
@@ -57,8 +57,8 @@ return(
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8">  
                     <Card 
                         src="/pic-rbased/urban-studies.jpg"
-                        title={"Remote Sensing and GIS"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-4xl font-extralight md:text-5xl lg:text-6xl text-center">Urban Studies</h2>
@@ -78,8 +78,8 @@ return(
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:reverse-grid-cols-2 gap-8 p-4 pt-8"> 
                     <Card 
                         src="/pic-rbased/forestry-ecology.jpg"
-                        title={"Research Based Services"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-2xl font-extralight md:text-5xl lg:text-6xl text-center">Forestry and Ecology</h2>
@@ -107,8 +107,8 @@ return(
                     <div className="space-y-4">
                         <Card 
                             src={"/pic-rbased/dist-mngt.jpg"}
-                            title={"Real Life Problems Through"}
-                            description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                            title={""}
+                            description={""}
                         />
                     </div>
                 </div>
@@ -121,7 +121,7 @@ return(
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8">  
                     <Card 
                         src="/pic-rbased/climatology.jpg"
-                        title={"Remote Sensing and GIS"}
+                        title={""}
                         description={"This is a Real Life Problems Through GIS and RBASED solutions."}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
@@ -140,8 +140,8 @@ return(
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:reverse-grid-cols-2 gap-8 p-4 pt-8"> 
                     <Card 
                         src="/pic-rbased/enery-sec.jpg"
-                        title={"Research Based Services"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-2xl font-extralight md:text-5xl lg:text-6xl text-center">Energy Sector</h2>
@@ -169,8 +169,8 @@ return(
                     <div className="space-y-4">
                         <Card 
                             src={"/pic-rbased/gis-system.jpg"}
-                            title={"Real Life Problems Through"}
-                            description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                            title={""}
+                            description={""}
                         />
                     </div>
                 </div>
@@ -183,8 +183,8 @@ return(
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8">  
                     <Card 
                         src="/pic-rbased/gis-system.jpg"
-                        title={"Remote Sensing and GIS"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-4xl font-extralight md:text-5xl lg:text-6xl text-center">Capacity Building Cell</h2>
@@ -204,8 +204,8 @@ return(
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-4 pt-8"> 
                     <Card 
                         src="/pic-rbased/photogramentry.jpg"
-                        title={"Research Based Services"}
-                        description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                        title={""}
+                        description={""}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
                         <h2 className="text-2xl font-extralight md:text-5xl lg:text-6xl text-center">Photogrammetry</h2>
@@ -233,8 +233,8 @@ return(
                     <div className="space-y-4">
                         <Card 
                             src={"/pic-rbased/capacity.jpg"}
-                            title={"Real Life Problems Through"}
-                            description={"This is a Real Life Problems Through GIS and RBASED solutions."}
+                            title={""}
+                            description={""}
                         />
                     </div>
                 </div>
