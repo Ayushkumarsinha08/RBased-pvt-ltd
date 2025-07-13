@@ -114,7 +114,7 @@ const user = localStorage.getItem('token');
   const renderPersonalDetailsStep = () => (
     <div className="space-y-6 bg-gradient-to-t from-gray-900  p-8 rounded-lg shadow-xl border border-gray-700">
       <h2 className="text-2xl text-gray-300 font-bold">Step 1: Personal Details</h2>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-3 text-gray-200">
           <Label className='text-xl pb-3 font-bold' htmlFor="firstName">First Name</Label>
           <Input 
@@ -172,14 +172,14 @@ const user = localStorage.getItem('token');
   // Step 2: Event Selection
   const renderEventSelectionStep = () => (
     <div className="space-y-6 bg-gradient-to-t from-gray-900 p-8 rounded-lg shadow-xl border border-gray-700">
-      <h2 className="text-2xl text-gray-300 font-bold">Step 2: Event Selection</h2>
+      <h2 className="text-2xl md:text-2xl text-gray-300 font-bold">Step 2: Event Selection</h2>
       <div className="space-y-3 text-gray-200">
         <Label className='text-xl font-bold' htmlFor="eventType">Event Type</Label>
         <Select
           value={formData.eventType}
           onValueChange={(value: string) => setFormData({...formData, eventType: value})}
         >
-          <SelectTrigger id="eventType" className="bg-gray-800/60 border-gray-700 text-xl text-gray-100 h-14">
+          <SelectTrigger id="eventType" className="bg-gray-800/60 border-gray-700 text-xl text-gray-100 h-10 md:h-14">
             <SelectValue placeholder="Select an event" />
           </SelectTrigger>
           <SelectContent className="bg-gray-800 text-xl text-gray-100 border-gray-700">
@@ -197,7 +197,7 @@ const user = localStorage.getItem('token');
             <Button
               id="eventDate" 
               variant="outline"
-              className="w-full justify-start text-left font-normal bg-gray-800/60 border-gray-700 text-xl text-gray-100 h-14"
+              className="w-full justify-start text-left font-normal bg-gray-800/60 border-gray-700 text-xl text-gray-100 h-10 md:h-14"
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
               {formData.date ? format(formData.date, "PPP") : <span className="text-gray-400">Select a date</span>}
@@ -221,28 +221,28 @@ const user = localStorage.getItem('token');
   // Step 3: Preferences
   const renderPreferencesStep = () => (
     <div className="space-y-6 bg-gradient-to-t from-gray-900 p-8 rounded-lg shadow-xl border border-gray-700">
-      <h2 className="text-2xl text-purple-300 font-bold">Step 3: Preferences</h2>
+      <h2 className="text-xl md:text-2xl text-purple-300 font-bold">Step 3: Preferences</h2>
       <div className="space-y-3 text-gray-200">
-        <Label className='text-xl font-bold' htmlFor="dietaryRequirements">Audience</Label>
+        <Label className='text-xl md:text-xl font-bold' htmlFor="dietaryRequirements">Audience</Label>
         <RadioGroup 
           value={formData.dietaryRequirements}
           onValueChange={(value: string) => setFormData({...formData, dietaryRequirements: value})}
           className="space-y-3"
         >
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="0-50" id="none" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="0-50" id="none" className="border-gray-500 text-blue-500 h-3 w-3 md:h-6 md:w-6" />
             <Label htmlFor="none" className="text-xl text-gray-200">0-50</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="50-100" id="vegetarian" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="50-100" id="vegetarian" className="border-gray-500 text-blue-500 h-3 w-3 md:h-6 md:w-6" />
             <Label htmlFor="vegetarian" className="text-xl text-gray-200">50-100</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="100-150" id="vegan" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="100-150" id="vegan" className="border-gray-500 text-blue-500 h-3 w-3 md:h-6 md:w-6" />
             <Label htmlFor="vegan" className="text-xl text-gray-200">100-150</Label>
           </div>
           <div className="flex items-center space-x-3">
-            <RadioGroupItem value="200+" id="glutenFree" className="border-gray-500 text-blue-500 h-6 w-6" />
+            <RadioGroupItem value="200+" id="glutenFree" className="border-gray-500 text-blue-500 h-3 w-3 md:h-6 md:w-6" />
             <Label htmlFor="glutenFree" className="text-xl text-gray-200">200+</Label>
           </div>
         </RadioGroup>
@@ -252,18 +252,18 @@ const user = localStorage.getItem('token');
           id="accommodationNeeded" 
           checked={formData.accommodationNeeded}
           onCheckedChange={(checked) => handleCheckboxChange('accommodationNeeded', checked)}
-          className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-6 w-6"
+          className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-3 w-3 md:h-6 md:w-6"
         />
-        <Label htmlFor="accommodationNeeded" className="text-xl text-gray-200">Will you provide accommodation</Label>
+        <Label htmlFor="accommodationNeeded" className="text-xl md:text-xl text-gray-200">Will you provide accommodation</Label>
       </div>
       <div className="flex items-center space-x-3 py-2">
         <Checkbox 
           id="transportationNeeded" 
           checked={formData.transportationNeeded}
           onCheckedChange={(checked) => handleCheckboxChange('transportationNeeded', checked)}
-          className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-6 w-6"
+          className="border-gray-500 text-blue-500 data-[state=checked]:bg-blue-600 h-3 w-3 md:h-6 md:w-6"
         />
-        <Label htmlFor="transportationNeeded" className="text-xl text-gray-200">Will you provide transportation</Label>
+        <Label htmlFor="transportationNeeded" className="text-xl md:text-xl text-gray-200">Will you provide transportation</Label>
       </div>
       <div className="space-y-3 text-gray-200">
         <Label className='text-xl font-bold' htmlFor="specialRequests">Special Requests :</Label>
